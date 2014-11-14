@@ -1,0 +1,23 @@
+//
+//  Vida.pch
+//  Vida
+//
+//  Created by Wenqi Zhou on 2014-10-28.
+//  Copyright (c) 2014 Vida. All rights reserved.
+//
+
+#ifndef Vida_Vida_pch
+#define Vida_Vida_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ApplicationStyle.h"
+#import "ApplicationConstants.h"
+#import "Convenience.h"
+#endif

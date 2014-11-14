@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AA7000D1A16BC5D00EF8628 /* VidaHomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7000C1A16BC5D00EF8628 /* VidaHomeTests.m */; };
+		2AA700191A16BC9100EF8628 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700181A16BC9100EF8628 /* ApplicationStyle.m */; };
+		2AA700251A16BD0C00EF8628 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7001E1A16BD0C00EF8628 /* CenterViewController.m */; };
+		2AA700261A16BD0C00EF8628 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700201A16BD0C00EF8628 /* LightViewController.m */; };
+		2AA700271A16BD0C00EF8628 /* SideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700221A16BD0C00EF8628 /* SideBarViewController.m */; };
+		2AA700281A16BD0C00EF8628 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700241A16BD0C00EF8628 /* SplashScreenViewController.m */; };
+		2AA7002C1A16BDA200EF8628 /* Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7002B1A16BDA200EF8628 /* Convenience.m */; };
+		2AA700331A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7002F1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m */; };
+		2AA700341A16BE4500EF8628 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700321A16BE4500EF8628 /* NetworkManager.m */; };
+		2AA7FFF31A16BC5D00EF8628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7FFF21A16BC5D00EF8628 /* main.m */; };
+		2AA7FFF61A16BC5D00EF8628 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7FFF51A16BC5D00EF8628 /* AppDelegate.m */; };
+		2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */; };
+		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AA700071A16BC5D00EF8628 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA7FFE51A16BC5D00EF8628 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AA7FFEC1A16BC5D00EF8628;
+			remoteInfo = VidaHome;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1744B4536F593E19B7F7DD9F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA700061A16BC5D00EF8628 /* VidaHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VidaHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA7000B1A16BC5D00EF8628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA7000C1A16BC5D00EF8628 /* VidaHomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VidaHomeTests.m; sourceTree = "<group>"; };
+		2AA700161A16BC9100EF8628 /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
+		2AA700171A16BC9100EF8628 /* ApplicationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationStyle.h; sourceTree = "<group>"; };
+		2AA700181A16BC9100EF8628 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
+		2AA7001D1A16BD0C00EF8628 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterViewController.h; path = Controllers/CenterViewController.h; sourceTree = "<group>"; };
+		2AA7001E1A16BD0C00EF8628 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterViewController.m; path = Controllers/CenterViewController.m; sourceTree = "<group>"; };
+		2AA7001F1A16BD0C00EF8628 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LightViewController.h; path = Controllers/LightViewController.h; sourceTree = "<group>"; };
+		2AA700201A16BD0C00EF8628 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LightViewController.m; path = Controllers/LightViewController.m; sourceTree = "<group>"; };
+		2AA700211A16BD0C00EF8628 /* SideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarViewController.h; path = Controllers/SideBarViewController.h; sourceTree = "<group>"; };
+		2AA700221A16BD0C00EF8628 /* SideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarViewController.m; path = Controllers/SideBarViewController.m; sourceTree = "<group>"; };
+		2AA700231A16BD0C00EF8628 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashScreenViewController.h; path = Controllers/SplashScreenViewController.h; sourceTree = "<group>"; };
+		2AA700241A16BD0C00EF8628 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashScreenViewController.m; path = Controllers/SplashScreenViewController.m; sourceTree = "<group>"; };
+		2AA700291A16BD2100EF8628 /* Vida.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vida.pch; sourceTree = "<group>"; };
+		2AA7002A1A16BDA200EF8628 /* Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convenience.h; sourceTree = "<group>"; };
+		2AA7002B1A16BDA200EF8628 /* Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Convenience.m; sourceTree = "<group>"; };
+		2AA7002E1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IIViewDeckController+SharedInstance.h"; path = "Models/IIViewDeckController+SharedInstance.h"; sourceTree = "<group>"; };
+		2AA7002F1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IIViewDeckController+SharedInstance.m"; path = "Models/IIViewDeckController+SharedInstance.m"; sourceTree = "<group>"; };
+		2AA700311A16BE4500EF8628 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		2AA700321A16BE4500EF8628 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		2AA7FFED1A16BC5D00EF8628 /* VidaHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidaHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA7FFF11A16BC5D00EF8628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA7FFF21A16BC5D00EF8628 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2AA7FFF41A16BC5D00EF8628 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2AA7FFF51A16BC5D00EF8628 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AA700031A16BC5D00EF8628 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AA7FFEA1A16BC5D00EF8628 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3509CE01605A306D318759C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AA700091A16BC5D00EF8628 /* VidaHomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7000C1A16BC5D00EF8628 /* VidaHomeTests.m */,
+				2AA7000A1A16BC5D00EF8628 /* Supporting Files */,
+			);
+			path = VidaHomeTests;
+			sourceTree = "<group>";
+		};
+		2AA7000A1A16BC5D00EF8628 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7000B1A16BC5D00EF8628 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2AA7001C1A16BCFA00EF8628 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7001D1A16BD0C00EF8628 /* CenterViewController.h */,
+				2AA7001E1A16BD0C00EF8628 /* CenterViewController.m */,
+				2AA7001F1A16BD0C00EF8628 /* LightViewController.h */,
+				2AA700201A16BD0C00EF8628 /* LightViewController.m */,
+				2AA700211A16BD0C00EF8628 /* SideBarViewController.h */,
+				2AA700221A16BD0C00EF8628 /* SideBarViewController.m */,
+				2AA700231A16BD0C00EF8628 /* SplashScreenViewController.h */,
+				2AA700241A16BD0C00EF8628 /* SplashScreenViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2AA7002D1A16BE2700EF8628 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7002E1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.h */,
+				2AA7002F1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m */,
+				2AA700301A16BE4500EF8628 /* NetworkManager */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2AA700301A16BE4500EF8628 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				2AA700311A16BE4500EF8628 /* NetworkManager.h */,
+				2AA700321A16BE4500EF8628 /* NetworkManager.m */,
+			);
+			name = NetworkManager;
+			path = Models/NetworkManager;
+			sourceTree = "<group>";
+		};
+		2AA7FFE41A16BC5D00EF8628 = {
+			isa = PBXGroup;
+			children = (
+				2AA7FFEF1A16BC5D00EF8628 /* VidaHome */,
+				2AA700091A16BC5D00EF8628 /* VidaHomeTests */,
+				2AA7FFEE1A16BC5D00EF8628 /* Products */,
+				2B621216464D702E6F78A6B1 /* Pods */,
+				360AB214BAFF0AE2853DBBFB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2AA7FFEE1A16BC5D00EF8628 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7FFED1A16BC5D00EF8628 /* VidaHome.app */,
+				2AA700061A16BC5D00EF8628 /* VidaHomeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AA7FFEF1A16BC5D00EF8628 /* VidaHome */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7002D1A16BE2700EF8628 /* Models */,
+				2AA7001C1A16BCFA00EF8628 /* Controllers */,
+				2AA7FFF41A16BC5D00EF8628 /* AppDelegate.h */,
+				2AA7FFF51A16BC5D00EF8628 /* AppDelegate.m */,
+				2AA700161A16BC9100EF8628 /* ApplicationConstants.h */,
+				2AA700171A16BC9100EF8628 /* ApplicationStyle.h */,
+				2AA700181A16BC9100EF8628 /* ApplicationStyle.m */,
+				2AA7002A1A16BDA200EF8628 /* Convenience.h */,
+				2AA7002B1A16BDA200EF8628 /* Convenience.m */,
+				2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */,
+				2AA7FFF01A16BC5D00EF8628 /* Supporting Files */,
+			);
+			path = VidaHome;
+			sourceTree = "<group>";
+		};
+		2AA7FFF01A16BC5D00EF8628 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7FFF11A16BC5D00EF8628 /* Info.plist */,
+				2AA700291A16BD2100EF8628 /* Vida.pch */,
+				2AA7FFF21A16BC5D00EF8628 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B621216464D702E6F78A6B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */,
+				B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		360AB214BAFF0AE2853DBBFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1744B4536F593E19B7F7DD9F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AA700051A16BC5D00EF8628 /* VidaHomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AA700131A16BC5D00EF8628 /* Build configuration list for PBXNativeTarget "VidaHomeTests" */;
+			buildPhases = (
+				2AA700021A16BC5D00EF8628 /* Sources */,
+				2AA700031A16BC5D00EF8628 /* Frameworks */,
+				2AA700041A16BC5D00EF8628 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AA700081A16BC5D00EF8628 /* PBXTargetDependency */,
+			);
+			name = VidaHomeTests;
+			productName = VidaHomeTests;
+			productReference = 2AA700061A16BC5D00EF8628 /* VidaHomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2AA7FFEC1A16BC5D00EF8628 /* VidaHome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AA700101A16BC5D00EF8628 /* Build configuration list for PBXNativeTarget "VidaHome" */;
+			buildPhases = (
+				37348A0CD2F75FA95D284B1D /* Check Pods Manifest.lock */,
+				2AA7FFE91A16BC5D00EF8628 /* Sources */,
+				2AA7FFEA1A16BC5D00EF8628 /* Frameworks */,
+				2AA7FFEB1A16BC5D00EF8628 /* Resources */,
+				035D68170290CDB7F47F2686 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VidaHome;
+			productName = VidaHome;
+			productReference = 2AA7FFED1A16BC5D00EF8628 /* VidaHome.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AA7FFE51A16BC5D00EF8628 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Vida;
+				TargetAttributes = {
+					2AA700051A16BC5D00EF8628 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 2AA7FFEC1A16BC5D00EF8628;
+					};
+					2AA7FFEC1A16BC5D00EF8628 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 2AA7FFE81A16BC5D00EF8628 /* Build configuration list for PBXProject "VidaHome" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AA7FFE41A16BC5D00EF8628;
+			productRefGroup = 2AA7FFEE1A16BC5D00EF8628 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AA7FFEC1A16BC5D00EF8628 /* VidaHome */,
+				2AA700051A16BC5D00EF8628 /* VidaHomeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AA700041A16BC5D00EF8628 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AA7FFEB1A16BC5D00EF8628 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		035D68170290CDB7F47F2686 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37348A0CD2F75FA95D284B1D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AA700021A16BC5D00EF8628 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA7000D1A16BC5D00EF8628 /* VidaHomeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AA7FFE91A16BC5D00EF8628 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA700331A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m in Sources */,
+				2AA7FFF61A16BC5D00EF8628 /* AppDelegate.m in Sources */,
+				2AA700281A16BD0C00EF8628 /* SplashScreenViewController.m in Sources */,
+				2AA700261A16BD0C00EF8628 /* LightViewController.m in Sources */,
+				2AA700251A16BD0C00EF8628 /* CenterViewController.m in Sources */,
+				2AA700271A16BD0C00EF8628 /* SideBarViewController.m in Sources */,
+				2AA7002C1A16BDA200EF8628 /* Convenience.m in Sources */,
+				2AA700191A16BC9100EF8628 /* ApplicationStyle.m in Sources */,
+				2AA700341A16BE4500EF8628 /* NetworkManager.m in Sources */,
+				2AA7FFF31A16BC5D00EF8628 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AA700081A16BC5D00EF8628 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AA7FFEC1A16BC5D00EF8628 /* VidaHome */;
+			targetProxy = 2AA700071A16BC5D00EF8628 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2AA7000E1A16BC5D00EF8628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2AA7000F1A16BC5D00EF8628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AA700111A16BC5D00EF8628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = VidaHome/Vida.pch;
+				INFOPLIST_FILE = VidaHome/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2AA700121A16BC5D00EF8628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = VidaHome/Vida.pch;
+				INFOPLIST_FILE = VidaHome/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2AA700141A16BC5D00EF8628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VidaHomeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VidaHome.app/VidaHome";
+			};
+			name = Debug;
+		};
+		2AA700151A16BC5D00EF8628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VidaHomeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VidaHome.app/VidaHome";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AA700101A16BC5D00EF8628 /* Build configuration list for PBXNativeTarget "VidaHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA700111A16BC5D00EF8628 /* Debug */,
+				2AA700121A16BC5D00EF8628 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AA700131A16BC5D00EF8628 /* Build configuration list for PBXNativeTarget "VidaHomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA700141A16BC5D00EF8628 /* Debug */,
+				2AA700151A16BC5D00EF8628 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AA7FFE81A16BC5D00EF8628 /* Build configuration list for PBXProject "VidaHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA7000E1A16BC5D00EF8628 /* Debug */,
+				2AA7000F1A16BC5D00EF8628 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AA7FFE51A16BC5D00EF8628 /* Project object */;
+}
