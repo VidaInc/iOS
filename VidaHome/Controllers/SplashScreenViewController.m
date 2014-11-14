@@ -7,6 +7,7 @@
 //
 
 #import "SplashScreenViewController.h"
+#import "AppDelegate.h"
 
 @interface SplashScreenViewController () {
     CGFloat width, height;
@@ -44,6 +45,7 @@
     [signUp.layer setCornerRadius:[ApplicationStyle buttonHeight]/2];
     [signUp.layer setMasksToBounds:YES];
     [signUp setTitle:@"Sign Up" forState:UIControlStateNormal];
+    [signUp setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:signUp];
     
     UIButton *signIn = [[UIButton alloc] initWithFrame:CGRectMake(0, signUp.bottomOffset+[ApplicationStyle buttonSpaceInset], [ApplicationStyle buttonWidth], [ApplicationStyle buttonHeight])];
@@ -52,9 +54,23 @@
     [signIn.layer setCornerRadius:[ApplicationStyle buttonHeight]/2];
     [signIn.layer setMasksToBounds:YES];
     [signIn setTitle:@"Sign In" forState:UIControlStateNormal];
+    [signIn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:signIn];
     
-    
+    UIButton *skip = [[UIButton alloc] initWithFrame:CGRectMake(0, signIn.bottomOffset+[ApplicationStyle buttonSpaceInset], [ApplicationStyle buttonWidth], [ApplicationStyle buttonHeight])];
+    [skip addTarget:self action:@selector(skip) forControlEvents:UIControlEventTouchUpInside];
+    [skip centerInWidth:width];
+    [skip setBackgroundColor:[UIColor whiteColor]];
+    [skip.layer setCornerRadius:[ApplicationStyle buttonHeight]/2];
+    [skip.layer setMasksToBounds:YES];
+    [skip setTitle:@"Skip" forState:UIControlStateNormal];
+    [skip setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:skip];
+}
+
+- (void)skip
+{
+    [((AppDelegate *)[[UIApplication sharedApplication]delegate]) switchToViewDeckRootViewController];
 }
 
 @end
