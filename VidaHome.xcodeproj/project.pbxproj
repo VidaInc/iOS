@@ -21,6 +21,10 @@
 		2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */; };
 		6F345D951A170C3F00FC1266 /* GenericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345D941A170C3F00FC1266 /* GenericViewController.m */; };
 		6F345D9D1A170CAD00FC1266 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345D9C1A170CAD00FC1266 /* ColorPickerViewController.m */; };
+		6F345DA11A1718F200FC1266 /* ACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA01A1718F200FC1266 /* ACViewController.m */; };
+		6F345DA81A17261F00FC1266 /* PlusMinusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA51A17261F00FC1266 /* PlusMinusButton.m */; };
+		6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */; };
+		6F345DAD1A172BF000FC1266 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DAC1A172BF000FC1266 /* DoorViewController.m */; };
 		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,14 @@
 		6F345D941A170C3F00FC1266 /* GenericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericViewController.m; path = Controllers/GenericViewController.m; sourceTree = "<group>"; };
 		6F345D9B1A170CAD00FC1266 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPickerViewController.h; path = Controllers/ColorPickerViewController.h; sourceTree = "<group>"; };
 		6F345D9C1A170CAD00FC1266 /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerViewController.m; path = Controllers/ColorPickerViewController.m; sourceTree = "<group>"; };
+		6F345D9F1A1718F200FC1266 /* ACViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACViewController.h; path = Controllers/ACViewController.h; sourceTree = "<group>"; };
+		6F345DA01A1718F200FC1266 /* ACViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACViewController.m; path = Controllers/ACViewController.m; sourceTree = "<group>"; };
+		6F345DA41A17261F00FC1266 /* PlusMinusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlusMinusButton.h; sourceTree = "<group>"; };
+		6F345DA51A17261F00FC1266 /* PlusMinusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusButton.m; sourceTree = "<group>"; };
+		6F345DA61A17261F00FC1266 /* PlusMinusButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlusMinusButtonView.h; sourceTree = "<group>"; };
+		6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusButtonView.m; sourceTree = "<group>"; };
+		6F345DAB1A172BF000FC1266 /* DoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoorViewController.h; path = Controllers/DoorViewController.h; sourceTree = "<group>"; };
+		6F345DAC1A172BF000FC1266 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorViewController.m; path = Controllers/DoorViewController.m; sourceTree = "<group>"; };
 		A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +122,8 @@
 		2AA7001C1A16BCFA00EF8628 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6F345DAA1A172BDD00FC1266 /* Door */,
+				6F345D9E1A1718CC00FC1266 /* AirCondition */,
 				6F345D921A170C1300FC1266 /* Light */,
 				2AA7001D1A16BD0C00EF8628 /* CenterViewController.h */,
 				2AA7001E1A16BD0C00EF8628 /* CenterViewController.m */,
@@ -166,6 +180,7 @@
 		2AA7FFEF1A16BC5D00EF8628 /* VidaHome */ = {
 			isa = PBXGroup;
 			children = (
+				6F345DA21A17261F00FC1266 /* Views */,
 				2AA7002D1A16BE2700EF8628 /* Models */,
 				2AA7001C1A16BCFA00EF8628 /* Controllers */,
 				2AA7FFF41A16BC5D00EF8628 /* AppDelegate.h */,
@@ -217,6 +232,43 @@
 				6F345D9C1A170CAD00FC1266 /* ColorPickerViewController.m */,
 			);
 			name = Light;
+			sourceTree = "<group>";
+		};
+		6F345D9E1A1718CC00FC1266 /* AirCondition */ = {
+			isa = PBXGroup;
+			children = (
+				6F345D9F1A1718F200FC1266 /* ACViewController.h */,
+				6F345DA01A1718F200FC1266 /* ACViewController.m */,
+			);
+			name = AirCondition;
+			sourceTree = "<group>";
+		};
+		6F345DA21A17261F00FC1266 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F345DA31A17261F00FC1266 /* PlusMinusButton */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F345DA31A17261F00FC1266 /* PlusMinusButton */ = {
+			isa = PBXGroup;
+			children = (
+				6F345DA41A17261F00FC1266 /* PlusMinusButton.h */,
+				6F345DA51A17261F00FC1266 /* PlusMinusButton.m */,
+				6F345DA61A17261F00FC1266 /* PlusMinusButtonView.h */,
+				6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */,
+			);
+			path = PlusMinusButton;
+			sourceTree = "<group>";
+		};
+		6F345DAA1A172BDD00FC1266 /* Door */ = {
+			isa = PBXGroup;
+			children = (
+				6F345DAB1A172BF000FC1266 /* DoorViewController.h */,
+				6F345DAC1A172BF000FC1266 /* DoorViewController.m */,
+			);
+			name = Door;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,15 +414,19 @@
 			files = (
 				2AA700331A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m in Sources */,
 				6F345D951A170C3F00FC1266 /* GenericViewController.m in Sources */,
+				6F345DAD1A172BF000FC1266 /* DoorViewController.m in Sources */,
 				2AA7FFF61A16BC5D00EF8628 /* AppDelegate.m in Sources */,
+				6F345DA11A1718F200FC1266 /* ACViewController.m in Sources */,
 				2AA700281A16BD0C00EF8628 /* SplashScreenViewController.m in Sources */,
 				2AA700261A16BD0C00EF8628 /* LightViewController.m in Sources */,
+				6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */,
 				2AA700251A16BD0C00EF8628 /* CenterViewController.m in Sources */,
 				2AA700271A16BD0C00EF8628 /* SideBarViewController.m in Sources */,
 				2AA7002C1A16BDA200EF8628 /* Convenience.m in Sources */,
 				2AA700191A16BC9100EF8628 /* ApplicationStyle.m in Sources */,
 				2AA700341A16BE4500EF8628 /* NetworkManager.m in Sources */,
 				6F345D9D1A170CAD00FC1266 /* ColorPickerViewController.m in Sources */,
+				6F345DA81A17261F00FC1266 /* PlusMinusButton.m in Sources */,
 				2AA7FFF31A16BC5D00EF8628 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

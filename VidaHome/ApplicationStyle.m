@@ -47,7 +47,7 @@
 
 + (CGFloat)sidebarWidth{return 178.0f;}
 
-+ (CGFloat)buttonSpaceInset{return 10.0f;}
++ (CGFloat)spaceInset{return 15.0f;}
 + (CGFloat)buttonWidth{return 145.0f;}
 + (CGFloat)buttonHeight{return 45.0f;}
 
@@ -58,11 +58,13 @@
 
 + (UIColor *)backgroundColor{return [UIColor colorWithWhite:RGBValue(247) alpha:1];}
 
++ (UIColor *)backgroundDarkColor{return [UIColor colorWithWhite:RGBValue(200) alpha:1];}
+
 @end
 
 @implementation ApplicationStyle (NavigationBar)
 
-+ (UIColor *)navigationBarBackgroundColor{return [UIColor colorWithWhite:RGBValue(247.0f) alpha:0.80f];}
++ (UIColor *)navigationBarBackgroundColor{return [UIColor colorWithWhite:RGBValue(200.0f) alpha:0.80f];}
 + (UIColor *)navigationBarTitleColor{return [UIColor blackColor];}
 + (UIFont *)navigationBarTitleFont{return [UIFont fontWithType:FontTypeMedium andSize:[ApplicationStyle largeTextSize]];}
 + (UIFont *)navigationBarRightButtonFont{return [UIFont fontWithName:@"Avenir-Heavy" size:[self largeTextSize]];}

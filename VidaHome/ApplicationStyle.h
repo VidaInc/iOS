@@ -30,7 +30,7 @@
 
 + (CGFloat)sidebarWidth;
 
-+ (CGFloat)buttonSpaceInset;
++ (CGFloat)spaceInset;
 + (CGFloat)buttonWidth;
 + (CGFloat)buttonHeight;
 
@@ -40,6 +40,7 @@
 @interface ApplicationStyle (Colors)
 
 + (UIColor *)backgroundColor;
++ (UIColor *)backgroundDarkColor;
 
 @end
 

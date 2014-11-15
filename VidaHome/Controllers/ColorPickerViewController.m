@@ -7,7 +7,6 @@
 //
 
 #import "ColorPickerViewController.h"
-#import "NetworkManager.h"
 #import <NKOColorPickerView/NKOColorPickerView.h>
 
 @interface ColorPickerViewController (){

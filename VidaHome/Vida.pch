@@ -20,4 +20,5 @@
 #import "ApplicationStyle.h"
 #import "ApplicationConstants.h"
 #import "Convenience.h"
+#import "NetworkManager.h"
 #endif

@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIImage *image = [UIImage imageNamed:@"navigation-bar-button-sb"];
+    UIImage *image = [UIImage imageNamed:@"navigationSB"];
     [ApplicationStyle customizeLeftButton:self hander:@selector(toggleDeck) withImage:image];
     self.deckVC = [IIViewDeckController sharedInstance];
     self.deckVC.delegate = self;

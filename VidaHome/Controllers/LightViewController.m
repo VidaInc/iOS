@@ -7,10 +7,8 @@
 //
 
 #import "LightViewController.h"
-#import "NetworkManager.h"
 #import "ColorPickerViewController.h"
 
-#define SPACE_INSET 20.0f
 #define LABEL_WIDTH 145.0f
 
 @interface LightViewController () {
@@ -35,16 +33,16 @@
     width = self.view.frame.size.width;
     height = self.view.frame.size.height;
     
-    UILabel *lightLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+SPACE_INSET, LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    UILabel *lightLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
     [lightLabel setText:@"Light Switch:"];
     [self.view addSubview:lightLabel];
     
     UISwitch *lightSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(LABEL_WIDTH, 0, 0, 0)];
-    [lightSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventTouchUpInside];
-    [lightSwitch centerInHeight:lightLabel.viewHeight forYOffset:[ApplicationStyle navigationBarHeight]+SPACE_INSET];
+    [lightSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
+    [lightSwitch centerInHeight:lightLabel.viewHeight forYOffset:[ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset]];
     [self.view addSubview:lightSwitch];
     
-    UILabel *colorLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], lightLabel.bottomOffset+SPACE_INSET, LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    UILabel *colorLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], lightLabel.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
     [colorLabel setText:@"Light Color:"];
     [self.view addSubview:colorLabel];
     
@@ -56,7 +54,7 @@
     [colorPicker.layer setBorderWidth:1];
     [colorPicker.layer setBorderColor:[UIColor blackColor].CGColor];
     [colorPicker addTarget:self action:@selector(pickColor:) forControlEvents:UIControlEventTouchUpInside];
-    [colorPicker centerInHeight:colorLabel.viewHeight forYOffset:lightLabel.bottomOffset+SPACE_INSET];
+    [colorPicker centerInHeight:colorLabel.viewHeight forYOffset:lightLabel.bottomOffset+[ApplicationStyle spaceInset]];
     [self.view addSubview:colorPicker];
     
 }
