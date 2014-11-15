@@ -34,6 +34,7 @@
 + (CGFloat)buttonWidth;
 + (CGFloat)buttonHeight;
 
++ (CGFloat)horizontalInset;
 @end
 
 @interface ApplicationStyle (Colors)
@@ -49,6 +50,7 @@
 + (UIFont *)navigationBarTitleFont;
 + (UIFont *)navigationBarRightButtonFont;
 + (UIColor *)navigationBarButtonDisabledColor;
++ (CGFloat)navigationBarHeight;
 +(void)customizeLeftButton:(UIViewController *)target hander:(SEL) handler withImage: (UIImage *)image;
 
 @end

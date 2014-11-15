@@ -39,6 +39,12 @@
     height = self.view.frame.size.height;
     [self.view setBackgroundColor:[ApplicationStyle backgroundColor]];
     
+    UILabel *logo = [[UILabel alloc]initWithFrame:CGRectMake(0, 200, width, [ApplicationStyle buttonHeight])];
+    [logo setText:@"Vida"];
+    [logo setFont:[UIFont fontWithType:FontTypeMedium andSize:[ApplicationStyle extraLargeTextSize]]];
+    [logo setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:logo];
+    
     UIButton *signUp = [[UIButton alloc] initWithFrame:CGRectMake(0, height/2 + [ApplicationStyle buttonSpaceInset], [ApplicationStyle buttonWidth], [ApplicationStyle buttonHeight])];
     [signUp centerInWidth:width];
     [signUp setBackgroundColor:[UIColor whiteColor]];

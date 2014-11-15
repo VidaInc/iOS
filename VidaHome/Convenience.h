@@ -47,6 +47,9 @@ typedef enum
 #define RGBValue(x) (x/COLOR_VALUE_MAX)
 
 @interface UIColor (Convenience)
+
+- (NSString *)hexStringFromColor;
+
 @end
 
 @interface UIView (Convenience)

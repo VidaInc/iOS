@@ -126,8 +126,25 @@ static NSString *baseFontFamilyName = @"HelveticaNeue";
 
 @end
 
-@implementation UIView (Convenience)
+@implementation UIColor (Convenience)
 
+- (NSString *)hexStringFromColor
+{
+    const CGFloat *components = CGColorGetComponents(self.CGColor);
+    
+    CGFloat r = components[0];
+    CGFloat g = components[1];
+    CGFloat b = components[2];
+    
+    return [NSString stringWithFormat:@"%02lX%02lX%02lX",
+            lroundf(r * 255),
+            lroundf(g * 255),
+            lroundf(b * 255)];
+}
+
+@end
+
+@implementation UIView (Convenience)
 
 - (CGFloat)viewHeight{return self.frame.size.height;}
 - (CGFloat)leftSidePosition{return self.frame.origin.x;}
@@ -162,6 +179,16 @@ static NSString *baseFontFamilyName = @"HelveticaNeue";
     CGRect newFrame = self.frame;
     newFrame.size.height = height;
     [self setFrame:newFrame];
+}
+
+- (void)offsetXPosition:(CGFloat)xOffset
+{
+    [self setXPosition:self.leftSidePosition + xOffset];
+}
+
+- (void)offsetYPosition:(CGFloat)yOffset
+{
+    [self setYPosition:self.topPosition + yOffset];
 }
 
 - (void)centerInWidth:(CGFloat)width

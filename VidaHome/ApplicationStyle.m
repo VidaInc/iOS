@@ -51,6 +51,8 @@
 + (CGFloat)buttonWidth{return 145.0f;}
 + (CGFloat)buttonHeight{return 45.0f;}
 
++ (CGFloat)horizontalInset{return 15.0f;}
+
 @end
 @implementation ApplicationStyle (Colors)
 
@@ -65,6 +67,9 @@
 + (UIFont *)navigationBarTitleFont{return [UIFont fontWithType:FontTypeMedium andSize:[ApplicationStyle largeTextSize]];}
 + (UIFont *)navigationBarRightButtonFont{return [UIFont fontWithName:@"Avenir-Heavy" size:[self largeTextSize]];}
 + (UIColor *)navigationBarButtonDisabledColor{return [UIColor colorWithRed:RGBValue(64) green:RGBValue(64) blue:RGBValue(64) alpha:1];}
+
++ (CGFloat)navigationBarHeight{return 64.0f;}
+
 +(void)customizeLeftButton:(UIViewController *)target hander:(SEL) handler withImage: (UIImage *)image
 {
     UIButton *tempView = [UIButton buttonWithType:UIButtonTypeCustom];
