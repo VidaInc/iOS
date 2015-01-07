@@ -68,11 +68,11 @@
         isOn = NO;
     }
     
-    [[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"Light":@(isOn)} success:^(id responseObject) {
+    /*[[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"ON":@(isOn), "color": } success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];
+    }];*/
 }
 
 -(void)pickColor:(UIButton *)sender

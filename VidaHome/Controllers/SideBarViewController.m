@@ -10,12 +10,14 @@
 #import "LightViewController.h"
 #import "ACViewController.h"
 #import "DoorViewController.h"
+#import "BeaconViewController.h"
 
 typedef NS_ENUM(NSInteger, SidebarOption)
 {
     SidebarOptionLight = 0,
     SidebarOptionAirCondition,
     SidebarOptionDoor,
+    SidebarOptionBeacon,
     SidebarOptionCount
 };
 
@@ -58,6 +60,12 @@ typedef NS_ENUM(NSInteger, SidebarOption)
     [door setTag:SidebarOptionDoor];
     [door addTarget:self action:@selector(switchToViewController:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:door];
+    
+    UIButton *beacon = [[UIButton alloc]initWithFrame:CGRectMake(0, door.bottomOffset+[ApplicationStyle spaceInset], [ApplicationStyle sidebarWidth], [ApplicationStyle buttonHeight])];
+    [beacon setTitle:@"Beacon" forState:UIControlStateNormal];
+    [beacon setTag:SidebarOptionBeacon];
+    [beacon addTarget:self action:@selector(switchToViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:beacon];
 }
 
 - (void)switchToViewController:(UIButton *)sender
@@ -69,6 +77,8 @@ typedef NS_ENUM(NSInteger, SidebarOption)
         vc = [ACViewController new];
     } else if (sender.tag == SidebarOptionDoor) {
         vc = [DoorViewController new];
+    } else if (sender.tag == SidebarOptionBeacon) {
+        vc = [BeaconViewController new];
     }
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
     IIViewDeckController *deckController = [IIViewDeckController sharedInstance];

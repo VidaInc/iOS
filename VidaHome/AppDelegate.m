@@ -11,6 +11,7 @@
 #import "SideBarViewController.h"
 #import "LightViewController.h"
 #import "IIViewDeckController+SharedInstance.h"
+#import <FYX/FYX.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +20,10 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Gimbal
+    [FYX setAppId:@"dbbb6562c77b2c8433992e0abe12575ba6f86aadd8cdc1e132652da68e1c277c"
+        appSecret:@"8ccecb68882556f6fef156cb64e4c941c11f59b5c43cf01382ea5bfe4e22f49a"
+      callbackUrl:@"vidahome://authcode"];
     //Initialize styles
     [ApplicationStyle initializeApplicationStyle];
     [self setWindow:[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]];

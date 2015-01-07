@@ -19,6 +19,22 @@
 		2AA7FFF31A16BC5D00EF8628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7FFF21A16BC5D00EF8628 /* main.m */; };
 		2AA7FFF61A16BC5D00EF8628 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7FFF51A16BC5D00EF8628 /* AppDelegate.m */; };
 		2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */; };
+		2ADD7C801A5DDFDB00D1C601 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7C7F1A5DDFDB00D1C601 /* CoreBluetooth.framework */; };
+		2ADD7C821A5DDFE700D1C601 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7C811A5DDFE700D1C601 /* CoreLocation.framework */; };
+		2ADD7C841A5DDFEE00D1C601 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7C831A5DDFEE00D1C601 /* CoreData.framework */; };
+		2ADD7C861A5DDFF800D1C601 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7C851A5DDFF800D1C601 /* libz.dylib */; };
+		2ADD7C881A5DDFFF00D1C601 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7C871A5DDFFF00D1C601 /* MapKit.framework */; };
+		2ADD7C8A1A5DE00900D1C601 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7C891A5DE00900D1C601 /* Security.framework */; };
+		2ADD7CAC1A5DE07D00D1C601 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7CA01A5DE07D00D1C601 /* Common.framework */; };
+		2ADD7CAD1A5DE07D00D1C601 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7CA21A5DE07D00D1C601 /* ContextCore.framework */; };
+		2ADD7CAE1A5DE07D00D1C601 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7CA41A5DE07D00D1C601 /* ContextLocation.framework */; };
+		2ADD7CAF1A5DE07D00D1C601 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ADD7CA61A5DE07D00D1C601 /* DataModels.bundle */; };
+		2ADD7CB01A5DE07D00D1C601 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7CA81A5DE07D00D1C601 /* ContextProfiling.framework */; };
+		2ADD7CB11A5DE07E00D1C601 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7CA91A5DE07D00D1C601 /* FYX.framework */; };
+		2ADD7CB21A5DE07E00D1C601 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADD7CAB1A5DE07D00D1C601 /* NetworkServices.framework */; };
+		2ADD7CB61A5DE4FB00D1C601 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD7CB51A5DE4FB00D1C601 /* BeaconViewController.m */; };
+		2ADD7CB91A5DEAA300D1C601 /* Transmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD7CB81A5DEAA300D1C601 /* Transmitter.m */; };
+		2ADD7CBC1A5DEBE900D1C601 /* BeaconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD7CBB1A5DEBE900D1C601 /* BeaconTableViewCell.m */; };
 		6F345D951A170C3F00FC1266 /* GenericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345D941A170C3F00FC1266 /* GenericViewController.m */; };
 		6F345D9D1A170CAD00FC1266 /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345D9C1A170CAD00FC1266 /* ColorPickerViewController.m */; };
 		6F345DA11A1718F200FC1266 /* ACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA01A1718F200FC1266 /* ACViewController.m */; };
@@ -67,6 +83,30 @@
 		2AA7FFF41A16BC5D00EF8628 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2AA7FFF51A16BC5D00EF8628 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2ADD7C751A5DDF0400D1C601 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = ../../../Downloads/gimbalsdk_1.29.1_ios/Frameworks/Common.embeddedframework/Common.framework; sourceTree = "<group>"; };
+		2ADD7C771A5DDF2800D1C601 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextCore.framework; path = ../../../Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextCore.embeddedframework/ContextCore.framework; sourceTree = "<group>"; };
+		2ADD7C791A5DDF3700D1C601 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContextLocation.framework; path = ../../../Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextLocation.embeddedframework/ContextLocation.framework; sourceTree = "<group>"; };
+		2ADD7C7B1A5DDF4300D1C601 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = ../../../Downloads/gimbalsdk_1.29.1_ios/Frameworks/FYX.framework; sourceTree = "<group>"; };
+		2ADD7C7D1A5DDF5000D1C601 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkServices.framework; path = ../../../Downloads/gimbalsdk_1.29.1_ios/Frameworks/NetworkServices.embeddedframework/NetworkServices.framework; sourceTree = "<group>"; };
+		2ADD7C7F1A5DDFDB00D1C601 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		2ADD7C811A5DDFE700D1C601 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2ADD7C831A5DDFEE00D1C601 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2ADD7C851A5DDFF800D1C601 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2ADD7C871A5DDFFF00D1C601 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2ADD7C891A5DE00900D1C601 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2ADD7CA01A5DE07D00D1C601 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		2ADD7CA21A5DE07D00D1C601 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
+		2ADD7CA41A5DE07D00D1C601 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
+		2ADD7CA61A5DE07D00D1C601 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
+		2ADD7CA81A5DE07D00D1C601 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
+		2ADD7CA91A5DE07D00D1C601 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
+		2ADD7CAB1A5DE07D00D1C601 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		2ADD7CB41A5DE4FB00D1C601 /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconViewController.h; path = Controllers/BeaconViewController.h; sourceTree = "<group>"; };
+		2ADD7CB51A5DE4FB00D1C601 /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconViewController.m; path = Controllers/BeaconViewController.m; sourceTree = "<group>"; };
+		2ADD7CB71A5DEAA300D1C601 /* Transmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transmitter.h; sourceTree = "<group>"; };
+		2ADD7CB81A5DEAA300D1C601 /* Transmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transmitter.m; sourceTree = "<group>"; };
+		2ADD7CBA1A5DEBE900D1C601 /* BeaconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconTableViewCell.h; sourceTree = "<group>"; };
+		2ADD7CBB1A5DEBE900D1C601 /* BeaconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconTableViewCell.m; sourceTree = "<group>"; };
 		6F345D931A170C3F00FC1266 /* GenericViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericViewController.h; path = Controllers/GenericViewController.h; sourceTree = "<group>"; };
 		6F345D941A170C3F00FC1266 /* GenericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericViewController.m; path = Controllers/GenericViewController.m; sourceTree = "<group>"; };
 		6F345D9B1A170CAD00FC1266 /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPickerViewController.h; path = Controllers/ColorPickerViewController.h; sourceTree = "<group>"; };
@@ -95,6 +135,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADD7CB11A5DE07E00D1C601 /* FYX.framework in Frameworks */,
+				2ADD7C8A1A5DE00900D1C601 /* Security.framework in Frameworks */,
+				2ADD7CB21A5DE07E00D1C601 /* NetworkServices.framework in Frameworks */,
+				2ADD7CAD1A5DE07D00D1C601 /* ContextCore.framework in Frameworks */,
+				2ADD7CB01A5DE07D00D1C601 /* ContextProfiling.framework in Frameworks */,
+				2ADD7C881A5DDFFF00D1C601 /* MapKit.framework in Frameworks */,
+				2ADD7C861A5DDFF800D1C601 /* libz.dylib in Frameworks */,
+				2ADD7C841A5DDFEE00D1C601 /* CoreData.framework in Frameworks */,
+				2ADD7CAE1A5DE07D00D1C601 /* ContextLocation.framework in Frameworks */,
+				2ADD7C821A5DDFE700D1C601 /* CoreLocation.framework in Frameworks */,
+				2ADD7CAC1A5DE07D00D1C601 /* Common.framework in Frameworks */,
+				2ADD7C801A5DDFDB00D1C601 /* CoreBluetooth.framework in Frameworks */,
 				C3509CE01605A306D318759C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +174,7 @@
 		2AA7001C1A16BCFA00EF8628 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2ADD7CB31A5DE4D300D1C601 /* Beacon */,
 				6F345DAA1A172BDD00FC1266 /* Door */,
 				6F345D9E1A1718CC00FC1266 /* AirCondition */,
 				6F345D921A170C1300FC1266 /* Light */,
@@ -140,6 +193,8 @@
 		2AA7002D1A16BE2700EF8628 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2ADD7CB71A5DEAA300D1C601 /* Transmitter.h */,
+				2ADD7CB81A5DEAA300D1C601 /* Transmitter.m */,
 				2AA7002E1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.h */,
 				2AA7002F1A16BE4500EF8628 /* IIViewDeckController+SharedInstance.m */,
 				2AA700301A16BE4500EF8628 /* NetworkManager */,
@@ -206,6 +261,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2ADD7C9F1A5DE07D00D1C601 /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CA01A5DE07D00D1C601 /* Common.framework */,
+			);
+			path = Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2ADD7CA11A5DE07D00D1C601 /* ContextCore.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CA21A5DE07D00D1C601 /* ContextCore.framework */,
+			);
+			path = ContextCore.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2ADD7CA31A5DE07D00D1C601 /* ContextLocation.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CA41A5DE07D00D1C601 /* ContextLocation.framework */,
+				2ADD7CA51A5DE07D00D1C601 /* Resources */,
+			);
+			path = ContextLocation.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2ADD7CA51A5DE07D00D1C601 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CA61A5DE07D00D1C601 /* DataModels.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2ADD7CA71A5DE07D00D1C601 /* ContextProfiling.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CA81A5DE07D00D1C601 /* ContextProfiling.framework */,
+			);
+			path = ContextProfiling.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2ADD7CAA1A5DE07D00D1C601 /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CAB1A5DE07D00D1C601 /* NetworkServices.framework */,
+			);
+			path = NetworkServices.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2ADD7CB31A5DE4D300D1C601 /* Beacon */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD7CB41A5DE4FB00D1C601 /* BeaconViewController.h */,
+				2ADD7CB51A5DE4FB00D1C601 /* BeaconViewController.m */,
+			);
+			name = Beacon;
+			sourceTree = "<group>";
+		};
 		2B621216464D702E6F78A6B1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +331,23 @@
 		360AB214BAFF0AE2853DBBFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2ADD7C9F1A5DE07D00D1C601 /* Common.embeddedframework */,
+				2ADD7CA11A5DE07D00D1C601 /* ContextCore.embeddedframework */,
+				2ADD7CA31A5DE07D00D1C601 /* ContextLocation.embeddedframework */,
+				2ADD7CA71A5DE07D00D1C601 /* ContextProfiling.embeddedframework */,
+				2ADD7CA91A5DE07D00D1C601 /* FYX.framework */,
+				2ADD7CAA1A5DE07D00D1C601 /* NetworkServices.embeddedframework */,
+				2ADD7C891A5DE00900D1C601 /* Security.framework */,
+				2ADD7C871A5DDFFF00D1C601 /* MapKit.framework */,
+				2ADD7C851A5DDFF800D1C601 /* libz.dylib */,
+				2ADD7C831A5DDFEE00D1C601 /* CoreData.framework */,
+				2ADD7C811A5DDFE700D1C601 /* CoreLocation.framework */,
+				2ADD7C7F1A5DDFDB00D1C601 /* CoreBluetooth.framework */,
+				2ADD7C7D1A5DDF5000D1C601 /* NetworkServices.framework */,
+				2ADD7C7B1A5DDF4300D1C601 /* FYX.framework */,
+				2ADD7C791A5DDF3700D1C601 /* ContextLocation.framework */,
+				2ADD7C771A5DDF2800D1C601 /* ContextCore.framework */,
+				2ADD7C751A5DDF0400D1C601 /* Common.framework */,
 				1744B4536F593E19B7F7DD9F /* libPods.a */,
 			);
 			name = Frameworks;
@@ -247,6 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				6F345DA31A17261F00FC1266 /* PlusMinusButton */,
+				2ADD7CBA1A5DEBE900D1C601 /* BeaconTableViewCell.h */,
+				2ADD7CBB1A5DEBE900D1C601 /* BeaconTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */,
+				2ADD7CAF1A5DE07D00D1C601 /* DataModels.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,10 +558,13 @@
 				2AA700271A16BD0C00EF8628 /* SideBarViewController.m in Sources */,
 				2AA7002C1A16BDA200EF8628 /* Convenience.m in Sources */,
 				2AA700191A16BC9100EF8628 /* ApplicationStyle.m in Sources */,
+				2ADD7CBC1A5DEBE900D1C601 /* BeaconTableViewCell.m in Sources */,
 				2AA700341A16BE4500EF8628 /* NetworkManager.m in Sources */,
 				6F345D9D1A170CAD00FC1266 /* ColorPickerViewController.m in Sources */,
 				6F345DA81A17261F00FC1266 /* PlusMinusButton.m in Sources */,
+				2ADD7CB91A5DEAA300D1C601 /* Transmitter.m in Sources */,
 				2AA7FFF31A16BC5D00EF8628 /* main.m in Sources */,
+				2ADD7CB61A5DE4FB00D1C601 /* BeaconViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +660,21 @@
 			baseConfigurationReference = A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/Common.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextCore.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextLocation.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/NetworkServices.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextProfiling.embeddedframework,
+					"$(PROJECT_DIR)/Common.embeddedframework",
+					"$(PROJECT_DIR)/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
+				);
 				GCC_PREFIX_HEADER = VidaHome/Vida.pch;
 				INFOPLIST_FILE = VidaHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -538,6 +689,21 @@
 			baseConfigurationReference = B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/Common.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextCore.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextLocation.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/NetworkServices.embeddedframework,
+					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/ContextProfiling.embeddedframework,
+					"$(PROJECT_DIR)/Common.embeddedframework",
+					"$(PROJECT_DIR)/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
+				);
 				GCC_PREFIX_HEADER = VidaHome/Vida.pch;
 				INFOPLIST_FILE = VidaHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
