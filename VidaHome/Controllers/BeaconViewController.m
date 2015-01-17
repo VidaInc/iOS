@@ -70,7 +70,7 @@
                                           otherButtonTitles:nil];
     [alert show];
 }
-
+//{"uuid":"00000000-0000-0000-0000-000000000002","major":0,"minor":0}
 #pragma mark - FYX visit delegate
 - (void)didArrive:(FYXVisit *)visit;
 {
@@ -96,10 +96,10 @@
     if (transmitter == nil)
     {
         transmitter = [Transmitter new];
-        transmitter.identifier = visit.transmitter.identifier;
-        transmitter.name = visit.transmitter.name ? visit.transmitter.name : visit.transmitter.identifier;
+        transmitter.identifier = visit.transmitter.identifier;//Q2XR-FJHFR
+        transmitter.name = visit.transmitter.name ? visit.transmitter.name : visit.transmitter.identifier;//4
         transmitter.lastSighted = [NSDate dateWithTimeIntervalSince1970:0];
-        transmitter.rssi = [NSNumber numberWithInt:-100];
+        transmitter.rssi = [NSNumber numberWithInt:-100];//-100
         transmitter.previousRSSI = transmitter.rssi;
         transmitter.batteryLevel = 0;
         transmitter.temperature = 0;

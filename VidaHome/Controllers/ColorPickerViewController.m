@@ -53,8 +53,8 @@
 -(void)changeColor:(UIButton *)sender
 {
     UIColor *color = sender.backgroundColor;
-    NSString *hexString = [NSString stringWithFormat:@"#%@",[color hexStringFromColor]];
-    [[NetworkManager sharedInstance] postRequest:@"/api/light/1" parameters:@{@"ON":@YES, @"color":hexString} success:^(id responseObject) {
+    //NSString *hexString = [NSString stringWithFormat:@"#%@",[color hexStringFromColor]];
+    [[NetworkManager sharedInstance] postRequest:@"light/1" parameters:@{@"ON":@YES, @"color":[color hexStringFromColor]} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");

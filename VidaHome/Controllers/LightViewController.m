@@ -23,6 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildUI];
+    [[NetworkManager sharedInstance] getRequest:@"light/1" parameters:nil success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"fail");
+    }];
 }
 
 -(NSString *)title {return @"Light";}
@@ -68,11 +73,11 @@
         isOn = NO;
     }
     
-    /*[[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"ON":@(isOn), "color": } success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"light/1" parameters:@{@"ON":@(isOn), @"color":@"ffffff" } success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];*/
+    }];
 }
 
 -(void)pickColor:(UIButton *)sender

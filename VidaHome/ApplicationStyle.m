@@ -32,7 +32,7 @@
 @implementation ApplicationStyle (String)
 
 +(NSString *)baseURLString {
-    return @"https://tenant2-dev.kineticcafe.com/api/";
+    return @"http://138.51.196.226:8000/api/";
 }
 
 @end

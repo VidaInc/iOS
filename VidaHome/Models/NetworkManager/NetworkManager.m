@@ -51,7 +51,7 @@ static NetworkManager *sharedInstance = nil;
 -(void)createManagerWithBaseURL:(NSString*)baseURLString {
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
     manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.requestSerializer.timeoutInterval = TIME_OUT;
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 }

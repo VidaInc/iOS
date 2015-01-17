@@ -22,6 +22,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildUI];
+    [[NetworkManager sharedInstance] getRequest:@"door/1" parameters:nil success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"fail");
+    }];
 }
 
 -(NSString *)title {return @"Door";}
@@ -52,7 +57,7 @@
         isOn = NO;
     }
     
-    [[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"Door":@(isOn)} success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"door/1" parameters:@{@"Door":@(isOn)} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
