@@ -13,6 +13,8 @@
 
 @interface ACViewController ()<PlusMinusButtonDelegate> {
     CGFloat width, height;
+    BOOL power;
+    BOOL heat;
 }
 
 @end
@@ -21,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    heat = YES;
     // Do any additional setup after loading the view.
     [self buildUI];
     [[NetworkManager sharedInstance] getRequest:@"ac/1" parameters:nil success:^(id responseObject) {
@@ -50,11 +53,11 @@
     [self.view addSubview:acSwitch];
     
     UILabel *thermostatLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], acSwitch.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
-    [thermostatLabel setText:@"Thermostat:"];
+    [thermostatLabel setText:@"Power Switch:"];
     [self.view addSubview:thermostatLabel];
     
     UISwitch *thermostatSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(LABEL_WIDTH, 0, 0, 0)];
-    [thermostatSwitch addTarget:self action:@selector(toggleThermostat:) forControlEvents:UIControlEventValueChanged];
+    [thermostatSwitch addTarget:self action:@selector(togglePower:) forControlEvents:UIControlEventValueChanged];
     [thermostatSwitch centerInHeight:thermostatLabel.viewHeight forYOffset:acSwitch.bottomOffset+[ApplicationStyle spaceInset]];
     [self.view addSubview:thermostatSwitch];
     
@@ -72,38 +75,37 @@
 
 - (void)changeSelection:(UISegmentedControl *)sender
 {
-    BOOL heat;
     if (sender.selectedSegmentIndex == 0) {
         heat = YES;
     } else {
         heat = NO;
     }
-    
-    /*[[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"Heat":@(heat)} success:^(id responseObject) {
-        NSLog(@"Success");
-    } failure:^(NSError *error) {
-        NSLog(@"fail");
-    }];*/
+    if (power) {
+        [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@YES,@"Heat":@(heat)} success:^(id responseObject) {
+            NSLog(@"Success");
+        } failure:^(NSError *error) {
+            NSLog(@"fail");
+        }];
+    }
 }
 
--(void)toggleThermostat:(UISwitch *)sender
+-(void)togglePower:(UISwitch *)sender
 {
-    BOOL isOn;
     if (sender.isOn) {
-        isOn = YES;
+        power = YES;
     } else {
-        isOn = NO;
+        power = NO;
     }
     
-    /*[[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"Thermostat":@(isOn)} success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@(power)} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];*/
+    }];
 }
 
 - (void)plusMinusButtonUpdated:(NSInteger)value {
-    [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@YES, @"Temperature":@(value)} success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@YES, @"Heat":@(heat),@"Temperature":@(value)} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
