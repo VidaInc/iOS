@@ -12,6 +12,7 @@
 #import <FYX/FYX.h>
 #import <FYX/FYXVisitManager.h>
 #import <FYX/FYXTransmitter.h>
+#define LABEL_WIDTH 145.0f
 
 @interface BeaconViewController () <UITableViewDataSource, UITableViewDelegate, FYXServiceDelegate, FYXVisitDelegate>{
     CGFloat width, height;
@@ -36,12 +37,24 @@
 {
     [self.view setBackgroundColor:[ApplicationStyle backgroundColor]];
     width = self.view.frame.size.width;
-    height = self.view.frame.size.height;
+    height = self.view.frame.size.height;    
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
+    
+    /*UILabel *beaconLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    [beaconLabel setText:@"Beacon Detect:"];
+    [self.view addSubview:beaconLabel];
+    
+    UILabel *batteryLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    [beaconLabel setText:@"Beacon Battery:"];
+    [self.view addSubview:batteryLabel];
+    
+    UILabel *tempLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], tempLabel.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    [tempLabel setText:@"Temperature:"];
+    [self.view addSubview:tempLabel];*/
 }
 
 #pragma mark - FYX Delegate methods
@@ -124,6 +137,14 @@
         BeaconTableViewCell *cell = (BeaconTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [cell.rssi setText:[NSString stringWithFormat:@"rssi: %@", transmitter.rssi]];
         [cell.temperature setText:[NSString stringWithFormat:@"temp: %@", transmitter.temperature]];
+        int rssi = [transmitter.rssi intValue];
+        int battery = [transmitter.batteryLevel intValue];
+        int temp = [transmitter.temperature intValue];
+        [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"RSSI":@(rssi), @"battery":@(battery), @"temp":@(temp)} success:^(id responseObject) {
+            NSLog(@"Success");
+        } failure:^(NSError *error) {
+            NSLog(@"fail");
+        }];
     }
 }
 
