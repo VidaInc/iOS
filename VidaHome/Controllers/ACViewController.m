@@ -105,6 +105,7 @@
 }
 
 - (void)plusMinusButtonUpdated:(NSInteger)value {
+    [ApplicationStyle setPreferTemp:value];
     [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@YES, @"Heat":@(heat),@"Temperature":@(value)} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {

@@ -119,33 +119,75 @@
         
         [self.transmitters addObject:transmitter];
         
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.transmitters.count - 1 inSection:0]]
-                              withRowAnimation:UITableViewRowAnimationAutomatic];
+        //[self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.transmitters.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+
+    transmitter.previousRSSI = transmitter.rssi;
+    transmitter.rssi = RSSI;
+    transmitter.batteryLevel = visit.transmitter.battery;
+    transmitter.temperature = visit.transmitter.temperature;
+    transmitter.inRange = NO;
+    transmitter.needHeat = NO;
+    int rssi = [transmitter.rssi intValue];
+    int battery = [transmitter.batteryLevel intValue];
+    int temp = [transmitter.temperature intValue];
     
     transmitter.lastSighted = updateTime;
-    
-    if ([self shouldUpdateTransmitterCell:visit transmitter:transmitter RSSI:RSSI])
+    if ([transmitter.rssi intValue] > -70) {
+        if ([transmitter.previousRSSI intValue] < -70) {
+            transmitter.inRange = YES;
+            if (temp > [ApplicationStyle getPreferTemp]) {
+                transmitter.needHeat = NO;
+            } else {
+                transmitter.needHeat = YES;
+            }
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
+                NSLog(@"Success");
+            } failure:^(NSError *error) {
+                NSLog(@"fail");
+            }];
+
+        } else if (temp > [ApplicationStyle getPreferTemp] && transmitter.needHeat == YES){
+            transmitter.needHeat = NO;
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
+                NSLog(@"Success");
+            } failure:^(NSError *error) {
+                NSLog(@"fail");
+            }];
+        } else if (temp < [ApplicationStyle getPreferTemp] && transmitter.needHeat == NO){
+            transmitter.needHeat = YES;
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
+                NSLog(@"Success");
+            } failure:^(NSError *error) {
+                NSLog(@"fail");
+            }];
+        }
+    } else {
+        if ([transmitter.previousRSSI intValue] > -70) {
+            transmitter.inRange = NO;
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"inRange":@NO} success:^(id responseObject) {
+                NSLog(@"Success");
+            } failure:^(NSError *error) {
+                NSLog(@"fail");
+            }];
+        }
+    }
+    /*if ([self shouldUpdateTransmitterCell:visit transmitter:transmitter RSSI:RSSI])
     {
         transmitter.previousRSSI = transmitter.rssi;
         transmitter.rssi = RSSI;
         transmitter.batteryLevel = visit.transmitter.battery;
         transmitter.temperature = visit.transmitter.temperature;
-        
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.transmitters indexOfObject:transmitter] inSection:0];
-        
-        BeaconTableViewCell *cell = (BeaconTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        [cell.rssi setText:[NSString stringWithFormat:@"rssi: %@", transmitter.rssi]];
-        [cell.temperature setText:[NSString stringWithFormat:@"temp: %@", transmitter.temperature]];
         int rssi = [transmitter.rssi intValue];
         int battery = [transmitter.batteryLevel intValue];
         int temp = [transmitter.temperature intValue];
-        [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"RSSI":@(rssi), @"battery":@(battery), @"temp":@(temp)} success:^(id responseObject) {
+
+        [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"ON":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
             NSLog(@"Success");
         } failure:^(NSError *error) {
             NSLog(@"fail");
         }];
-    }
+    }*/
 }
 
 #pragma mark - Table view data source
@@ -172,12 +214,19 @@
 
 - (BOOL)shouldUpdateTransmitterCell:(FYXVisit *)visit transmitter:(Transmitter *)transmitter RSSI:(NSNumber *)rssi
 {
-    if ([transmitter.rssi isEqual:rssi] &&
-        [transmitter.batteryLevel isEqualToNumber:visit.transmitter.battery] &&
-        [transmitter.temperature isEqualToNumber:visit.transmitter.temperature])
-    {
+    if ([rssi intValue] > -70) {
+        return YES;
+    } else {
+        if ([transmitter.previousRSSI intValue] > -70) {
+            
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"ON":@NO} success:^(id responseObject) {
+                NSLog(@"Success");
+            } failure:^(NSError *error) {
+                NSLog(@"fail");
+            }];
+        }
         return NO;
     }
-    return YES;
+    return NO;
 }
 @end

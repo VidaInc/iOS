@@ -12,6 +12,7 @@
 
 @interface DoorViewController (){
     CGFloat width, height;
+    UITextField *IP, *user;
 }
 
 @end
@@ -45,7 +46,24 @@
     [lockSwitch addTarget:self action:@selector(toggleDoor:) forControlEvents:UIControlEventValueChanged];
     [lockSwitch centerInHeight:doorLabel.viewHeight forYOffset:[ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset]];
     [self.view addSubview:lockSwitch];
-    
+    IP = [[UITextField alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], doorLabel.bottomOffset+[ApplicationStyle spaceInset], width, [ApplicationStyle buttonHeight])];
+    [IP.layer setBorderWidth:1];
+    [self.view addSubview:IP];
+    user = [[UITextField alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], IP.bottomOffset+[ApplicationStyle spaceInset], width, [ApplicationStyle buttonHeight])];
+    [user.layer setBorderWidth:1];
+    [self.view addSubview:user];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], user.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    [button setBackgroundColor:[UIColor blackColor]];
+    [button setTitle:@"submit" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(addIP:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+-(void)addIP:(UIButton *)button
+{
+    [ApplicationStyle setIP:IP.text];
+    [ApplicationStyle setUser:user.text];
+    [[NetworkManager sharedInstance]createManagerWithBaseURL:[ApplicationStyle baseURLString]];
 }
 
 -(void)toggleDoor:(UISwitch *)sender

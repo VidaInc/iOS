@@ -8,6 +8,10 @@
 
 #import "ApplicationStyle.h"
 
+static int temperature = 0;
+static NSString *ip;
+static NSString *userId;
+
 @implementation ApplicationStyle
 
 +(void)initializeApplicationStyle{
@@ -27,12 +31,32 @@
     return;
 }
 
++(void)setPreferTemp:(int)temp {
+    temperature = temp;
+}
+
++(int)getPreferTemp {
+    return temperature;
+}
+
 @end
 
 @implementation ApplicationStyle (String)
 
++(void)setUser:(NSString *)user {
+    userId = user;
+}
+
++(NSString *)getUserId {
+    return userId;
+}
+
++(void)setIP:(NSString *)IP {
+    ip = IP;
+}
+
 +(NSString *)baseURLString {
-    return @"http://138.51.196.226:8000/api/";
+    return [NSString stringWithFormat:@"http://%@:8000/api/", ip];
 }
 
 @end

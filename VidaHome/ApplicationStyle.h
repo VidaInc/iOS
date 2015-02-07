@@ -12,10 +12,16 @@
 
 +(void)initializeApplicationStyle;
 
++(void)setPreferTemp:(int)temp;
++(int)getPreferTemp;
+
 @end
 
 @interface ApplicationStyle (String)
 
++(void)setIP:(NSString *)IP;
++(void)setUser:(NSString *)user;
++(NSString *)getUserId;
 +(NSString *)baseURLString;
 
 @end

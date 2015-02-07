@@ -26,4 +26,6 @@
           parameters:(NSDictionary*)parameters
              success:(void(^)(id responseObject))successBlock
              failure:(void(^)(NSError *error))failureBlock;
+
+-(void)createManagerWithBaseURL:(NSString*)baseURLString;
 @end
