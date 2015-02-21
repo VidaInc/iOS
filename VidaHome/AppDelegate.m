@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SplashScreenViewController.h"
+#import "MainViewController.h"
 #import "SideBarViewController.h"
 #import "LightViewController.h"
 #import "IIViewDeckController+SharedInstance.h"
@@ -28,8 +29,15 @@
     [ApplicationStyle initializeApplicationStyle];
     [self setWindow:[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]];
     
-    [self switchToSplashScreenRootViewController];
+    //[self switchToSplashScreenRootViewController];
+    MainViewController *viewController = [MainViewController new];
+    //[viewController setShouldShowContentsWithAnimation:YES];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:viewController];
+    //[navController.navigationBar setTranslucent:YES];
     
+    [self.window setRootViewController: navController];
+    [self.window setBackgroundColor:[ApplicationStyle backgroundColor]];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

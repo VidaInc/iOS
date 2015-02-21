@@ -80,7 +80,7 @@ static NSString *userId;
 @end
 @implementation ApplicationStyle (Colors)
 
-+ (UIColor *)backgroundColor{return [UIColor colorWithWhite:RGBValue(247) alpha:1];}
++ (UIColor *)backgroundColor{return [UIColor colorWithRed:RGBValue(240) green:RGBValue(240) blue:RGBValue(244) alpha:1];}
 
 + (UIColor *)backgroundDarkColor{return [UIColor colorWithWhite:RGBValue(200) alpha:1];}
 
@@ -88,7 +88,7 @@ static NSString *userId;
 
 @implementation ApplicationStyle (NavigationBar)
 
-+ (UIColor *)navigationBarBackgroundColor{return [UIColor colorWithWhite:RGBValue(200.0f) alpha:0.80f];}
++ (UIColor *)navigationBarBackgroundColor{return [UIColor colorWithWhite:RGBValue(247.0f) alpha:0.80f];}
 + (UIColor *)navigationBarTitleColor{return [UIColor blackColor];}
 + (UIFont *)navigationBarTitleFont{return [UIFont fontWithType:FontTypeMedium andSize:[ApplicationStyle largeTextSize]];}
 + (UIFont *)navigationBarRightButtonFont{return [UIFont fontWithName:@"Avenir-Heavy" size:[self largeTextSize]];}
