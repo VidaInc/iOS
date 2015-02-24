@@ -78,11 +78,32 @@ static NSString *userId;
 + (CGFloat)horizontalInset{return 15.0f;}
 
 @end
+
 @implementation ApplicationStyle (Colors)
 
 + (UIColor *)backgroundColor{return [UIColor colorWithRed:RGBValue(240) green:RGBValue(240) blue:RGBValue(244) alpha:1];}
 
 + (UIColor *)backgroundDarkColor{return [UIColor colorWithWhite:RGBValue(200) alpha:1];}
+
++ (UIColor *)cellOffTextColor{return [UIColor colorWithRed:RGBValue(125) green:RGBValue(124) blue:RGBValue(130) alpha:1];}
+
++ (UIColor *)cellBlurColor{return [UIColor colorWithRed:RGBValue(0) green:RGBValue(133) blue:RGBValue(246) alpha:1];}
+
+@end
+
+@implementation ApplicationStyle (Fonts)
+
++ (UIFont *)cellTextFont {
+    return [UIFont fontWithName:@"HelveticaNeue" size:22];
+}
+
++ (UIFont *)cellsecondTitleFont {
+    return [UIFont fontWithName:@"HelveticaNeue" size:12];
+}
+
++ (UIFont *)cellTempFont {
+    return [UIFont fontWithName:@"HelveticaNeue" size:30];
+}
 
 @end
 
@@ -107,6 +128,13 @@ static NSString *userId;
     
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithCustomView:tempView ];
     target.navigationItem.leftBarButtonItem = btn;
+}
+
++(void)customizeTitle:(UIViewController *)target withImage: (UIImage *)image
+{
+    UIImageView *tempView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [tempView setImage:image];
+    target.navigationItem.titleView = tempView;
 }
     
 @end

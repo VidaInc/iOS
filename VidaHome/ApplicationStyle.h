@@ -47,7 +47,15 @@
 
 + (UIColor *)backgroundColor;
 + (UIColor *)backgroundDarkColor;
++ (UIColor *)cellOffTextColor;
++ (UIColor *)cellBlurColor;
+@end
 
+@interface ApplicationStyle (Fonts)
+
++ (UIFont *)cellTextFont;
++ (UIFont *)cellsecondTitleFont;
++ (UIFont *)cellTempFont;
 @end
 
 @interface ApplicationStyle (NavigationBar)
@@ -59,5 +67,6 @@
 + (UIColor *)navigationBarButtonDisabledColor;
 + (CGFloat)navigationBarHeight;
 +(void)customizeLeftButton:(UIViewController *)target hander:(SEL) handler withImage: (UIImage *)image;
++(void)customizeTitle:(UIViewController *)target withImage: (UIImage *)image;
 
 @end

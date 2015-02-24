@@ -42,9 +42,6 @@
 		6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */; };
 		6F345DAD1A172BF000FC1266 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DAC1A172BF000FC1266 /* DoorViewController.m */; };
 		8E132F9B1A788C12004B5F83 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E132F9A1A788C12004B5F83 /* MainViewController.m */; };
-		8E15575E1A990A9800E3D03F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E15575D1A990A9800E3D03F /* test.jpg */; };
-		8E1557601A99121A00E3D03F /* door.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E15575F1A99121A00E3D03F /* door.jpg */; };
-		8E1557621A99123100E3D03F /* light.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8E1557611A99123100E3D03F /* light.jpeg */; };
 		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -125,9 +122,6 @@
 		6F345DAC1A172BF000FC1266 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorViewController.m; path = Controllers/DoorViewController.m; sourceTree = "<group>"; };
 		8E132F991A788C12004B5F83 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		8E132F9A1A788C12004B5F83 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
-		8E15575D1A990A9800E3D03F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
-		8E15575F1A99121A00E3D03F /* door.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = door.jpg; sourceTree = "<group>"; };
-		8E1557611A99123100E3D03F /* light.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = light.jpeg; sourceTree = "<group>"; };
 		A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,7 +250,6 @@
 				2AA700181A16BC9100EF8628 /* ApplicationStyle.m */,
 				2AA7002A1A16BDA200EF8628 /* Convenience.h */,
 				2AA7002B1A16BDA200EF8628 /* Convenience.m */,
-				2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */,
 				2AA7FFF01A16BC5D00EF8628 /* Supporting Files */,
 			);
 			path = VidaHome;
@@ -265,6 +258,7 @@
 		2AA7FFF01A16BC5D00EF8628 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */,
 				2AA7FFF11A16BC5D00EF8628 /* Info.plist */,
 				2AA700291A16BD2100EF8628 /* Vida.pch */,
 				2AA7FFF21A16BC5D00EF8628 /* main.m */,
@@ -367,9 +361,6 @@
 		6F345D921A170C1300FC1266 /* Light */ = {
 			isa = PBXGroup;
 			children = (
-				8E1557611A99123100E3D03F /* light.jpeg */,
-				8E15575F1A99121A00E3D03F /* door.jpg */,
-				8E15575D1A990A9800E3D03F /* test.jpg */,
 				2AA7001F1A16BD0C00EF8628 /* LightViewController.h */,
 				2AA700201A16BD0C00EF8628 /* LightViewController.m */,
 				6F345D9B1A170CAD00FC1266 /* ColorPickerViewController.h */,
@@ -508,10 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */,
-				8E1557621A99123100E3D03F /* light.jpeg in Resources */,
 				2ADD7CAF1A5DE07D00D1C601 /* DataModels.bundle in Resources */,
-				8E15575E1A990A9800E3D03F /* test.jpg in Resources */,
-				8E1557601A99121A00E3D03F /* door.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +666,7 @@
 			baseConfigurationReference = A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/Common.embeddedframework,
@@ -707,6 +696,7 @@
 			baseConfigurationReference = B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Wenqi/Downloads/gimbalsdk_1.29.1_ios/Frameworks/Common.embeddedframework,
