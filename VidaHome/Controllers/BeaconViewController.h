@@ -8,6 +8,6 @@
 
 #import "CenterViewController.h"
 
-@interface BeaconViewController : CenterViewController
+@interface BeaconViewController : UIViewController
 
 @end

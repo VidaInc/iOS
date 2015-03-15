@@ -16,6 +16,7 @@
 
 @interface BeaconViewController () <UITableViewDataSource, UITableViewDelegate, FYXServiceDelegate, FYXVisitDelegate>{
     CGFloat width, height;
+    UITextField *IP, *user;
 }
 
 @property NSMutableArray *transmitters;
@@ -33,6 +34,8 @@
     [self buildUI];
 }
 
+-(NSString *)title {return @"Beacon";}
+
 - (void)buildUI
 {
     [self.view setBackgroundColor:[ApplicationStyle backgroundColor]];
@@ -42,19 +45,23 @@
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, width, height)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
+    //[self.view addSubview:self.tableView];
     
-    /*UILabel *beaconLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
-    [beaconLabel setText:@"Beacon Detect:"];
-    [self.view addSubview:beaconLabel];
+    IP = [[UITextField alloc]initWithFrame:CGRectMake(0, [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], width, [ApplicationStyle buttonHeight])];
+    [IP setPlaceholder:@"enter IP"];
+    [IP.layer setBorderWidth:1];
+    [self.view addSubview:IP];
     
-    UILabel *batteryLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
-    [beaconLabel setText:@"Beacon Battery:"];
-    [self.view addSubview:batteryLabel];
+    user = [[UITextField alloc]initWithFrame:CGRectMake(0, IP.bottomOffset+[ApplicationStyle spaceInset], width, [ApplicationStyle buttonHeight])];
+    [user setPlaceholder:@"enter user id(device)"];
+    [user.layer setBorderWidth:1];
+    [self.view addSubview:user];
     
-    UILabel *tempLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], tempLabel.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
-    [tempLabel setText:@"Temperature:"];
-    [self.view addSubview:tempLabel];*/
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], user.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
+    [button setBackgroundColor:[UIColor blackColor]];
+    [button setTitle:@"submit" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(addIP:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 #pragma mark - FYX Delegate methods
@@ -141,7 +148,7 @@
             } else {
                 transmitter.needHeat = YES;
             }
-            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp]), @"deviceId":transmitter.identifier} success:^(id responseObject) {
                 NSLog(@"Success");
             } failure:^(NSError *error) {
                 NSLog(@"fail");
@@ -149,14 +156,14 @@
 
         } else if (temp > [ApplicationStyle getPreferTemp] && transmitter.needHeat == YES){
             transmitter.needHeat = NO;
-            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp]), @"deviceId":transmitter.identifier} success:^(id responseObject) {
                 NSLog(@"Success");
             } failure:^(NSError *error) {
                 NSLog(@"fail");
             }];
         } else if (temp < [ApplicationStyle getPreferTemp] && transmitter.needHeat == NO){
             transmitter.needHeat = YES;
-            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp])} success:^(id responseObject) {
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp]), @"deviceId":transmitter.identifier} success:^(id responseObject) {
                 NSLog(@"Success");
             } failure:^(NSError *error) {
                 NSLog(@"fail");
@@ -165,7 +172,7 @@
     } else {
         if ([transmitter.previousRSSI intValue] > -70) {
             transmitter.inRange = NO;
-            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"userId":[ApplicationStyle getUserId],@"inRange":@NO} success:^(id responseObject) {
+            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"inRange":@NO, @"deviceId":transmitter.identifier} success:^(id responseObject) {
                 NSLog(@"Success");
             } failure:^(NSError *error) {
                 NSLog(@"fail");
@@ -211,22 +218,11 @@
     return cell;
 }
 
-
-- (BOOL)shouldUpdateTransmitterCell:(FYXVisit *)visit transmitter:(Transmitter *)transmitter RSSI:(NSNumber *)rssi
+-(void)addIP:(UIButton *)button
 {
-    if ([rssi intValue] > -70) {
-        return YES;
-    } else {
-        if ([transmitter.previousRSSI intValue] > -70) {
-            
-            [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon/%@", transmitter.identifier] parameters:@{@"ON":@NO} success:^(id responseObject) {
-                NSLog(@"Success");
-            } failure:^(NSError *error) {
-                NSLog(@"fail");
-            }];
-        }
-        return NO;
-    }
-    return NO;
+    [ApplicationStyle setIP:IP.text];
+    [ApplicationStyle setUser:user.text];
+    [[NetworkManager sharedInstance]createManagerWithBaseURL:[ApplicationStyle baseURLString]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "BeaconViewController.h"
 
 
 @interface MainViewController ()<UITableViewDataSource, UITableViewDelegate> {
@@ -27,8 +28,7 @@
     UIImage *navTiltle = [UIImage imageNamed:@"navigationTitle"];
     [ApplicationStyle customizeLeftButton:self hander:nil withImage:image];
     [ApplicationStyle customizeTitle:self withImage:navTiltle];
-    NSArray *list = [[NSArray alloc] initWithObjects:@"Ceiling Light 1", @"Thermo",
-                      @"Floor Light 1", nil];
+    NSArray *list = [[NSArray alloc] initWithObjects:@"Ceiling Light 1", @"Thermo", @"Floor Light 1", @"iBeacon", nil];
     self.dataList = list;
     
     [self buildUI];
@@ -48,7 +48,7 @@
 
 #pragma mark - Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 4;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,9 +82,15 @@
     
     UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 0, 45, 45)];
     [iconView centerInHeight:92];
+    
+    UISwitch *deviceSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(240, 0, 0, 0)];
+    [deviceSwitch centerInHeight:92];
+    [cell.contentView addSubview:deviceSwitch];
+    
     if (indexPath.row == 0) {
         iconView.image = [UIImage imageNamed:@"LightCellOn"];
         secTitle.text = @"Turn off after 10 pm";
+        [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
     } else if (indexPath.row == 1) {
         iconView.image = [UIImage imageNamed:@"ThermoCellOn"];
         secTitle.text = @"Reach setting temp. in 1 hr";
@@ -92,12 +98,15 @@
         temp.text = @"22°C";
         temp.font = [ApplicationStyle cellTempFont];
         temp.textColor = [ApplicationStyle cellBlurColor];
-        [cell.contentView addSubview:temp];
-    } else {
-        [[cell contentView] setBackgroundColor:[ApplicationStyle backgroundColor]];
-        [title setTextColor:[ApplicationStyle cellOffTextColor]];
-        iconView.image = [UIImage imageNamed:@"FloorCellOff"];
+        //[cell.contentView addSubview:temp];
+    } else if (indexPath.row == 2) {
+        //[[cell contentView] setBackgroundColor:[ApplicationStyle backgroundColor]];
+        //[title setTextColor:[ApplicationStyle cellOffTextColor]];
+        iconView.image = [UIImage imageNamed:@"FloorCellOn"];
         secTitle.text = @"Turn on after 10 pm";
+        [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
+    } else if (indexPath.row == 3) {
+        secTitle.text = @"Click to turn on Beacon";
     }
     [cell.contentView addSubview:iconView];
     return cell;
@@ -107,4 +116,29 @@
     return 92;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == 3) {
+        BeaconViewController *beaconController = [BeaconViewController new];
+        [self.navigationController pushViewController:beaconController animated:YES];
+    }
+}
+
+
+-(void)toggleLight:(UISwitch *)sender
+{
+    BOOL isOn;
+    if (sender.isOn) {
+        isOn = YES;
+    } else {
+        isOn = NO;
+    }
+    
+    [[NetworkManager sharedInstance] postRequest:@"light/1" parameters:@{@"ON":@(isOn), @"color":@"ffffff" } success:^(id responseObject) {
+        NSLog(@"Success");
+    } failure:^(NSError *error) {
+        NSLog(@"fail");
+    }];
+}
 @end
