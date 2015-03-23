@@ -8,6 +8,8 @@
 
 #import "CenterViewController.h"
 
-@interface ACViewController : CenterViewController
+@interface ACViewController : UIViewController
+
+@property (nonatomic, strong) NSString *thermoId;
 
 @end

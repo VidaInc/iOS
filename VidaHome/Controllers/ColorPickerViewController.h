@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GenericViewController.h"
 
-@interface ColorPickerViewController : GenericViewController
+@interface ColorPickerViewController : UIViewController
+
+@property (nonatomic, strong) NSString *lightId;
 
 @end

@@ -67,6 +67,7 @@
 + (UIColor *)navigationBarButtonDisabledColor;
 + (CGFloat)navigationBarHeight;
 +(void)customizeLeftButton:(UIViewController *)target hander:(SEL) handler withImage: (UIImage *)image;
++(void)customizeRightButton:(UIViewController *)target hander:(SEL) handler withImage: (UIImage *)image;
 +(void)customizeTitle:(UIViewController *)target withImage: (UIImage *)image;
 
 @end

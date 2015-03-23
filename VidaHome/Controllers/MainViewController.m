@@ -8,13 +8,15 @@
 
 #import "MainViewController.h"
 #import "BeaconViewController.h"
+#import "ColorPickerViewController.h"
+#import "ACViewController.h"
 
-
-@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate> {
+@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate> {
     CGFloat width, height;
 }
 
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) UITabBarController *tab;
 
 @end
 
@@ -25,10 +27,12 @@
     // Do any additional setup after loading the view.
     
     UIImage *image = [UIImage imageNamed:@"navigationSB"];
+    UIImage *navRight = [UIImage imageNamed:@"navigationRight"];
     UIImage *navTiltle = [UIImage imageNamed:@"navigationTitle"];
     [ApplicationStyle customizeLeftButton:self hander:nil withImage:image];
+    [ApplicationStyle customizeRightButton:self hander:nil withImage:navRight];
     [ApplicationStyle customizeTitle:self withImage:navTiltle];
-    NSArray *list = [[NSArray alloc] initWithObjects:@"Ceiling Light 1", @"Thermo", @"Floor Light 1", @"iBeacon", nil];
+    NSArray *list = [[NSArray alloc] initWithObjects:@"2998",@"2356",@"1548", @"1937", @"2466", @"2477", nil];
     self.dataList = list;
     
     [self buildUI];
@@ -44,11 +48,14 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
+    
+    self.tab = [[UITabBarController alloc]init];
+    
 }
 
 #pragma mark - Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 7;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,8 +63,37 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UILabel *title, *secTitle;
+    UIImageView *iconView;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+        title = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, 160, 30)];
+        title.font = [ApplicationStyle cellTextFont];
+        [cell.contentView addSubview:title];
+        
+        secTitle = [[UILabel alloc]initWithFrame:CGRectMake(70, 55, 160, 15)];
+        secTitle.font = [ApplicationStyle cellsecondTitleFont];
+        secTitle.textColor = [ApplicationStyle cellOffTextColor];
+        [cell.contentView addSubview:secTitle];
+        
+        iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 0, 45, 45)];
+        [iconView centerInHeight:92];
+        [cell.contentView addSubview:iconView];
+        if (indexPath.row < 4) {
+            UISwitch *deviceSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(240, 0, 0, 0)];
+            NSString *deviceId=self.dataList[indexPath.row];
+            deviceSwitch.tag = [deviceId intValue];
+            [deviceSwitch centerInHeight:92];
+            [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
+            [cell.contentView addSubview:deviceSwitch];
+        } else if (indexPath.row == 4 || indexPath.row == 5) {
+            UILabel *temp = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 80, 92)];
+            temp.text = @"22°C";
+            temp.font = [ApplicationStyle cellTempFont];
+            temp.textColor = [ApplicationStyle cellBlurColor];
+            [cell.contentView addSubview:temp];
+        }
     }
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [tableView setSeparatorInset:UIEdgeInsetsZero];
@@ -70,45 +106,20 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, 160, 30)];
-    title.text = [self.dataList objectAtIndex:indexPath.row];
-    title.font = [ApplicationStyle cellTextFont];
-    [cell.contentView addSubview:title];
     
-    UILabel *secTitle = [[UILabel alloc]initWithFrame:CGRectMake(70, 55, 160, 15)];
-    secTitle.font = [ApplicationStyle cellsecondTitleFont];
-    secTitle.textColor = [ApplicationStyle cellOffTextColor];
-    [cell.contentView addSubview:secTitle];
     
-    UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 0, 45, 45)];
-    [iconView centerInHeight:92];
-    
-    UISwitch *deviceSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(240, 0, 0, 0)];
-    [deviceSwitch centerInHeight:92];
-    [cell.contentView addSubview:deviceSwitch];
-    
-    if (indexPath.row == 0) {
+    if (indexPath.row < 4) {
+        title.text =[NSString stringWithFormat:@"Light %@", [self.dataList objectAtIndex:indexPath.row]];
         iconView.image = [UIImage imageNamed:@"LightCellOn"];
         secTitle.text = @"Turn off after 10 pm";
-        [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
-    } else if (indexPath.row == 1) {
+    } else if (indexPath.row == 4 || indexPath.row == 5) {
+        title.text =[NSString stringWithFormat:@"Thermo %@", [self.dataList objectAtIndex:indexPath.row]];
         iconView.image = [UIImage imageNamed:@"ThermoCellOn"];
         secTitle.text = @"Reach setting temp. in 1 hr";
-        UILabel *temp = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 80, 92)];
-        temp.text = @"22°C";
-        temp.font = [ApplicationStyle cellTempFont];
-        temp.textColor = [ApplicationStyle cellBlurColor];
-        //[cell.contentView addSubview:temp];
-    } else if (indexPath.row == 2) {
-        //[[cell contentView] setBackgroundColor:[ApplicationStyle backgroundColor]];
-        //[title setTextColor:[ApplicationStyle cellOffTextColor]];
-        iconView.image = [UIImage imageNamed:@"FloorCellOn"];
-        secTitle.text = @"Turn on after 10 pm";
-        [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
-    } else if (indexPath.row == 3) {
+    } else if (indexPath.row == 6) {
+        title.text = @"Beacon";
         secTitle.text = @"Click to turn on Beacon";
     }
-    [cell.contentView addSubview:iconView];
     return cell;
 }
 
@@ -119,7 +130,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (indexPath.row == 3) {
+    if (indexPath.row < 4) {
+        ColorPickerViewController *vc = [ColorPickerViewController new];
+        vc.lightId = self.dataList[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 4 || indexPath.row == 5) {
+        ACViewController *vc = [ACViewController new];
+        vc.thermoId = self.dataList[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 6) {
         BeaconViewController *beaconController = [BeaconViewController new];
         [self.navigationController pushViewController:beaconController animated:YES];
     }
@@ -134,8 +153,8 @@
     } else {
         isOn = NO;
     }
-    
-    [[NetworkManager sharedInstance] postRequest:@"light/1" parameters:@{@"ON":@(isOn), @"color":@"ffffff" } success:^(id responseObject) {
+    NSString *deviceId = [NSString stringWithFormat:@"%ld",(long)sender.tag];
+    [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"deviceId":deviceId,@"ON":@(isOn), @"color":@"ffffff"} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");

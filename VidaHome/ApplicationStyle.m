@@ -10,7 +10,7 @@
 
 static int temperature = 0;
 static NSString *ip;
-static NSString *userId;
+static NSString *userId = @"0";
 
 @implementation ApplicationStyle
 
@@ -56,7 +56,7 @@ static NSString *userId;
 }
 
 +(NSString *)baseURLString {
-    return [NSString stringWithFormat:@"http://%@:8000/api/", ip];
+    return [NSString stringWithFormat:@"http://%@:8000/api/", @"172.20.10.7"];
 }
 
 @end
@@ -128,6 +128,19 @@ static NSString *userId;
     
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithCustomView:tempView ];
     target.navigationItem.leftBarButtonItem = btn;
+}
+
++(void)customizeRightButton:(UIViewController *)target hander:(SEL) handler withImage: (UIImage *)image
+{
+    UIButton *tempView = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    tempView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    [tempView setImage:image forState:UIControlStateNormal];
+    [tempView setImage:image forState:UIControlStateDisabled];
+    [tempView addTarget:target action:handler forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithCustomView:tempView ];
+    target.navigationItem.rightBarButtonItem = btn;
 }
 
 +(void)customizeTitle:(UIViewController *)target withImage: (UIImage *)image

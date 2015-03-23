@@ -26,11 +26,11 @@
     heat = YES;
     // Do any additional setup after loading the view.
     [self buildUI];
-    [[NetworkManager sharedInstance] getRequest:@"ac/1" parameters:nil success:^(id responseObject) {
+    /*[[NetworkManager sharedInstance] getRequest:@"ac/1" parameters:nil success:^(id responseObject) {
         NSLog(@"%@",responseObject);
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];
+    }];*/
 }
 
 -(NSString *)title {return @"Air Condition";}
@@ -81,7 +81,7 @@
         heat = NO;
     }
     if (power) {
-        [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@YES,@"Heat":@(heat)} success:^(id responseObject) {
+        [[NetworkManager sharedInstance] postRequest:@"ac" parameters:@{@"deviceId": self.thermoId, @"ON":@YES,@"Heat":@(heat)} success:^(id responseObject) {
             NSLog(@"Success");
         } failure:^(NSError *error) {
             NSLog(@"fail");
@@ -97,7 +97,7 @@
         power = NO;
     }
     
-    [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@(power)} success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"ac" parameters:@{@"deviceId": self.thermoId, @"ON":@(power)} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
@@ -106,7 +106,7 @@
 
 - (void)plusMinusButtonUpdated:(NSInteger)value {
     [ApplicationStyle setPreferTemp:value];
-    [[NetworkManager sharedInstance] postRequest:@"ac/1" parameters:@{@"ON":@YES, @"Heat":@(heat),@"Temperature":@(value)} success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"ac" parameters:@{@"deviceId": self.thermoId, @"ON":@YES, @"Heat":@(heat),@"Temperature":@(value)} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");

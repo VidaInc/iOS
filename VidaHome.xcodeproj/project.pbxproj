@@ -177,6 +177,7 @@
 		2AA7001C1A16BCFA00EF8628 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6FAC3EFC1ABF694C00ADDDF4 /* Room */,
 				2ADD7CB31A5DE4D300D1C601 /* Beacon */,
 				6F345DAA1A172BDD00FC1266 /* Door */,
 				6F345D9E1A1718CC00FC1266 /* AirCondition */,
@@ -406,6 +407,13 @@
 				6F345DAC1A172BF000FC1266 /* DoorViewController.m */,
 			);
 			name = Door;
+			sourceTree = "<group>";
+		};
+		6FAC3EFC1ABF694C00ADDDF4 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Room;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
