@@ -169,8 +169,8 @@
                 NSLog(@"fail");
             }];
         }
-    } else {
-        if ([transmitter.previousRSSI intValue] > -70) {
+    } else if ([transmitter.rssi intValue] < -80) {
+        if ([transmitter.previousRSSI intValue] > -80) {
             transmitter.inRange = NO;
             [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"inRange":@NO, @"deviceId":transmitter.identifier} success:^(id responseObject) {
                 NSLog(@"Success");
