@@ -9,7 +9,7 @@
 #import "ApplicationStyle.h"
 
 static int temperature = 0;
-static NSString *ip;
+static NSString *ip=@"192.168.1.129";
 static NSString *userId = @"0";
 
 @implementation ApplicationStyle
@@ -56,7 +56,7 @@ static NSString *userId = @"0";
 }
 
 +(NSString *)baseURLString {
-    return [NSString stringWithFormat:@"http://%@:8000/api/", @"172.20.10.7"];
+    return [NSString stringWithFormat:@"http://%@:8000/api/", ip];
 }
 
 @end
