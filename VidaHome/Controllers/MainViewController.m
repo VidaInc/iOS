@@ -10,13 +10,17 @@
 #import "BeaconViewController.h"
 #import "ColorPickerViewController.h"
 #import "ACViewController.h"
+#import "LightViewController.h"
+#import "ABLightManager.h"
+#import "ABLight.h"
 
-@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate> {
+@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, ABLightManagerDelegate> {
     CGFloat width, height;
 }
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UITabBarController *tab;
+@property (nonatomic) NSMutableArray *ABLights;
 
 @end
 
@@ -34,6 +38,10 @@
     [ApplicationStyle customizeTitle:self withImage:navTiltle];
     NSArray *list = [[NSArray alloc] initWithObjects:@"2998",@"2356",@"1548", @"1937", @"2466", @"2477", nil];
     self.dataList = list;
+    self.ABLights = [[NSMutableArray alloc]init];
+    ABLightManager *lightManager = [ABLightManager new];
+    lightManager.delegate = self;
+    [lightManager startDiscoverLight];
     
     [self buildUI];
 }
@@ -55,7 +63,7 @@
 
 #pragma mark - Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 7;
+    return 7+[self.ABLights count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,6 +102,14 @@
             temp.textColor = [ApplicationStyle cellBlurColor];
             [cell.contentView addSubview:temp];
         }
+        else if (indexPath.row > 6) {
+            UISwitch *deviceSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(240, 0, 0, 0)];
+           /// NSString *deviceId=self.dataList[indexPath.row];
+            deviceSwitch.tag = indexPath.row-7;
+            [deviceSwitch centerInHeight:92];
+            [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
+            [cell.contentView addSubview:deviceSwitch];
+        }
     }
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [tableView setSeparatorInset:UIEdgeInsetsZero];
@@ -120,6 +136,13 @@
         title.text = @"Beacon";
         secTitle.text = @"Click to turn on Beacon";
     }
+    else if (indexPath.row > 6) {
+        //get the light from ABLightManager
+        title.text = @"lightnew";
+        iconView.image = [UIImage imageNamed:@"LightCellOn"];
+        secTitle.text = @"Turn off after 11 pm";
+
+    }
     return cell;
 }
 
@@ -141,6 +164,11 @@
     } else if (indexPath.row == 6) {
         BeaconViewController *beaconController = [BeaconViewController new];
         [self.navigationController pushViewController:beaconController animated:YES];
+    } else if (indexPath.row > 7 ){
+        //get the data from ABLightManager
+        //LightViewController *lightController = [LightViewController new];
+        
+        //[self.navigationController pushViewController:lightController animated:(YES)];
     }
 }
 
@@ -153,6 +181,22 @@
     } else {
         isOn = NO;
     }
+    ABLight *light = self.ABLights[sender.tag];
+    [light connect];
+    if ( isOn == YES) {
+        [light setLightValue:255 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
+    }
+    else {
+        [light setLightValue:0 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
+    }
+    
+    [light disconnect];
+
+    
     NSString *deviceId = [NSString stringWithFormat:@"%ld",(long)sender.tag];
     [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"deviceId":deviceId,@"ON":@(isOn), @"color":@"ffffff"} success:^(id responseObject) {
         NSLog(@"Success");
@@ -160,4 +204,15 @@
         NSLog(@"fail");
     }];
 }
+
+-(void)lightManager:(ABLightManager *)manager didDiscoverLights:(NSArray *)lights
+{
+    if ([lights count] == 2) {
+        [self.ABLights addObject:lights[0]];
+        [self.ABLights addObject:lights[1]];
+    } else if ([lights count] == 1) {
+        [self.ABLights addObject:lights[0]];
+    }
+}
+
 @end

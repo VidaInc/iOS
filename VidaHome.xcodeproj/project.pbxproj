@@ -42,6 +42,7 @@
 		6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */; };
 		6F345DAD1A172BF000FC1266 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DAC1A172BF000FC1266 /* DoorViewController.m */; };
 		8E132F9B1A788C12004B5F83 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E132F9A1A788C12004B5F83 /* MainViewController.m */; };
+		8E3ABE171AFC25BD00131C02 /* libABLightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */; };
 		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,10 @@
 		6F345DAC1A172BF000FC1266 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorViewController.m; path = Controllers/DoorViewController.m; sourceTree = "<group>"; };
 		8E132F991A788C12004B5F83 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		8E132F9A1A788C12004B5F83 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
+		8E3ABE131AFC25BD00131C02 /* ABLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLight.h; sourceTree = "<group>"; };
+		8E3ABE141AFC25BD00131C02 /* ABLightManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLightManager.h; sourceTree = "<group>"; };
+		8E3ABE151AFC25BD00131C02 /* ABLightSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLightSDK.h; sourceTree = "<group>"; };
+		8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libABLightSDK.a; sourceTree = "<group>"; };
 		A367F451252B55D8CB3BD42E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B04F93D778EF4C9051AF9158 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +153,7 @@
 				2ADD7C841A5DDFEE00D1C601 /* CoreData.framework in Frameworks */,
 				2ADD7CAE1A5DE07D00D1C601 /* ContextLocation.framework in Frameworks */,
 				2ADD7C821A5DDFE700D1C601 /* CoreLocation.framework in Frameworks */,
+				8E3ABE171AFC25BD00131C02 /* libABLightSDK.a in Frameworks */,
 				2ADD7CAC1A5DE07D00D1C601 /* Common.framework in Frameworks */,
 				2ADD7C801A5DDFDB00D1C601 /* CoreBluetooth.framework in Frameworks */,
 				C3509CE01605A306D318759C /* libPods.a in Frameworks */,
@@ -241,6 +247,7 @@
 		2AA7FFEF1A16BC5D00EF8628 /* VidaHome */ = {
 			isa = PBXGroup;
 			children = (
+				8E3ABE111AFC25BD00131C02 /* ABLightSDK */,
 				6F345DA21A17261F00FC1266 /* Views */,
 				2AA7002D1A16BE2700EF8628 /* Models */,
 				2AA7001C1A16BCFA00EF8628 /* Controllers */,
@@ -414,6 +421,25 @@
 			children = (
 			);
 			name = Room;
+			sourceTree = "<group>";
+		};
+		8E3ABE111AFC25BD00131C02 /* ABLightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				8E3ABE121AFC25BD00131C02 /* Headers */,
+				8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */,
+			);
+			path = ABLightSDK;
+			sourceTree = "<group>";
+		};
+		8E3ABE121AFC25BD00131C02 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8E3ABE131AFC25BD00131C02 /* ABLight.h */,
+				8E3ABE141AFC25BD00131C02 /* ABLightManager.h */,
+				8E3ABE151AFC25BD00131C02 /* ABLightSDK.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -694,6 +720,10 @@
 				INFOPLIST_FILE = VidaHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VidaHome/ABLightSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -724,6 +754,10 @@
 				INFOPLIST_FILE = VidaHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VidaHome/ABLightSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
