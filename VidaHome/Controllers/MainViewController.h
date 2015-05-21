@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController
-@property (nonatomic, retain) NSArray *dataList;
+//@property (nonatomic, retain) NSArray *dataList;
 
 @end

@@ -41,6 +41,7 @@
 		6F345DA81A17261F00FC1266 /* PlusMinusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA51A17261F00FC1266 /* PlusMinusButton.m */; };
 		6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */; };
 		6F345DAD1A172BF000FC1266 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DAC1A172BF000FC1266 /* DoorViewController.m */; };
+		6FBA8A261B030F5B00C6B3C4 /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBA8A251B030F5B00C6B3C4 /* libAprilBeaconSDK.a */; };
 		8E132F9B1A788C12004B5F83 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E132F9A1A788C12004B5F83 /* MainViewController.m */; };
 		8E3ABE171AFC25BD00131C02 /* libABLightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */; };
 		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
@@ -121,6 +122,13 @@
 		6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusButtonView.m; sourceTree = "<group>"; };
 		6F345DAB1A172BF000FC1266 /* DoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoorViewController.h; path = Controllers/DoorViewController.h; sourceTree = "<group>"; };
 		6F345DAC1A172BF000FC1266 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorViewController.m; path = Controllers/DoorViewController.m; sourceTree = "<group>"; };
+		6FBA8A1F1B030F5B00C6B3C4 /* ABBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeacon.h; sourceTree = "<group>"; };
+		6FBA8A201B030F5B00C6B3C4 /* ABBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconManager.h; sourceTree = "<group>"; };
+		6FBA8A211B030F5B00C6B3C4 /* ABBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconRegion.h; sourceTree = "<group>"; };
+		6FBA8A221B030F5B00C6B3C4 /* ABError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABError.h; sourceTree = "<group>"; };
+		6FBA8A231B030F5B00C6B3C4 /* ABSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSensor.h; sourceTree = "<group>"; };
+		6FBA8A241B030F5B00C6B3C4 /* AprilBeaconSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AprilBeaconSDK.h; sourceTree = "<group>"; };
+		6FBA8A251B030F5B00C6B3C4 /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAprilBeaconSDK.a; sourceTree = "<group>"; };
 		8E132F991A788C12004B5F83 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		8E132F9A1A788C12004B5F83 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
 		8E3ABE131AFC25BD00131C02 /* ABLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLight.h; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 				2ADD7CB01A5DE07D00D1C601 /* ContextProfiling.framework in Frameworks */,
 				2ADD7C881A5DDFFF00D1C601 /* MapKit.framework in Frameworks */,
 				2ADD7C861A5DDFF800D1C601 /* libz.dylib in Frameworks */,
+				6FBA8A261B030F5B00C6B3C4 /* libAprilBeaconSDK.a in Frameworks */,
 				2ADD7C841A5DDFEE00D1C601 /* CoreData.framework in Frameworks */,
 				2ADD7CAE1A5DE07D00D1C601 /* ContextLocation.framework in Frameworks */,
 				2ADD7C821A5DDFE700D1C601 /* CoreLocation.framework in Frameworks */,
@@ -247,6 +256,7 @@
 		2AA7FFEF1A16BC5D00EF8628 /* VidaHome */ = {
 			isa = PBXGroup;
 			children = (
+				6FBA8A1D1B030F5B00C6B3C4 /* AprilSDK */,
 				8E3ABE111AFC25BD00131C02 /* ABLightSDK */,
 				6F345DA21A17261F00FC1266 /* Views */,
 				2AA7002D1A16BE2700EF8628 /* Models */,
@@ -421,6 +431,28 @@
 			children = (
 			);
 			name = Room;
+			sourceTree = "<group>";
+		};
+		6FBA8A1D1B030F5B00C6B3C4 /* AprilSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6FBA8A1E1B030F5B00C6B3C4 /* Headers */,
+				6FBA8A251B030F5B00C6B3C4 /* libAprilBeaconSDK.a */,
+			);
+			path = AprilSDK;
+			sourceTree = "<group>";
+		};
+		6FBA8A1E1B030F5B00C6B3C4 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				6FBA8A1F1B030F5B00C6B3C4 /* ABBeacon.h */,
+				6FBA8A201B030F5B00C6B3C4 /* ABBeaconManager.h */,
+				6FBA8A211B030F5B00C6B3C4 /* ABBeaconRegion.h */,
+				6FBA8A221B030F5B00C6B3C4 /* ABError.h */,
+				6FBA8A231B030F5B00C6B3C4 /* ABSensor.h */,
+				6FBA8A241B030F5B00C6B3C4 /* AprilBeaconSDK.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		8E3ABE111AFC25BD00131C02 /* ABLightSDK */ = {
@@ -723,6 +755,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VidaHome/ABLightSDK",
+					"$(PROJECT_DIR)/VidaHome/AprilSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -757,6 +790,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VidaHome/ABLightSDK",
+					"$(PROJECT_DIR)/VidaHome/AprilSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

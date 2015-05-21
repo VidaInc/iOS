@@ -11,16 +11,20 @@
 #import "ColorPickerViewController.h"
 #import "ACViewController.h"
 #import "LightViewController.h"
-#import "ABLightManager.h"
-#import "ABLight.h"
+#import "ABLightSDK.h"
+#import "ABBeaconManager.h"
+#import "ABBeacon.h"
 
-@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, ABLightManagerDelegate> {
+@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, ABLightManagerDelegate, ABLightDelegate, ABBeaconManagerDelegate> {
     CGFloat width, height;
 }
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UITabBarController *tab;
-@property (nonatomic) NSMutableArray *ABLights;
+@property (nonatomic) NSArray *ABLights;
+@property (nonatomic) ABLightManager *lightManager;
+@property BOOL selectedLightOn;
+@property (nonatomic, strong) ABBeaconManager *beaconManager;
 
 @end
 
@@ -36,14 +40,26 @@
     [ApplicationStyle customizeLeftButton:self hander:nil withImage:image];
     [ApplicationStyle customizeRightButton:self hander:nil withImage:navRight];
     [ApplicationStyle customizeTitle:self withImage:navTiltle];
-    NSArray *list = [[NSArray alloc] initWithObjects:@"2998",@"2356",@"1548", @"1937", @"2466", @"2477", nil];
-    self.dataList = list;
-    self.ABLights = [[NSMutableArray alloc]init];
-    ABLightManager *lightManager = [ABLightManager new];
-    lightManager.delegate = self;
-    [lightManager startDiscoverLight];
+    //NSArray *list = [[NSArray alloc] initWithObjects:@"2998",@"2356",@"1548", @"1937", @"2466", @"2477", nil];
+    self.lightManager = [ABLightManager new];
+    self.lightManager.delegate = self;
+    self.beaconManager = [[ABBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
     
     [self buildUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.lightManager startDiscoverLight];
+    [self startRangeBeacons];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self stopRangeBeacons];
 }
 
 - (void)buildUI
@@ -57,13 +73,13 @@
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
-    self.tab = [[UITabBarController alloc]init];
+    //self.tab = [[UITabBarController alloc]init];
     
 }
 
 #pragma mark - Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 7+[self.ABLights count];
+    return [self.ABLights count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,14 +104,14 @@
         iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 0, 45, 45)];
         [iconView centerInHeight:92];
         [cell.contentView addSubview:iconView];
-        if (indexPath.row < 4) {
+        //if (indexPath.row < 4) {
             UISwitch *deviceSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(240, 0, 0, 0)];
-            NSString *deviceId=self.dataList[indexPath.row];
-            deviceSwitch.tag = [deviceId intValue];
+            
+            deviceSwitch.tag = indexPath.row;
             [deviceSwitch centerInHeight:92];
             [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
             [cell.contentView addSubview:deviceSwitch];
-        } else if (indexPath.row == 4 || indexPath.row == 5) {
+        /*} else if (indexPath.row == 4 || indexPath.row == 5) {
             UILabel *temp = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 80, 92)];
             temp.text = @"22°C";
             temp.font = [ApplicationStyle cellTempFont];
@@ -109,7 +125,7 @@
             [deviceSwitch centerInHeight:92];
             [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
             [cell.contentView addSubview:deviceSwitch];
-        }
+        }*/
     }
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [tableView setSeparatorInset:UIEdgeInsetsZero];
@@ -124,11 +140,12 @@
     }
     
     
-    if (indexPath.row < 4) {
-        title.text =[NSString stringWithFormat:@"Light %@", [self.dataList objectAtIndex:indexPath.row]];
+    //if (indexPath.row) {
+        ABLight *light = self.ABLights[indexPath.row];
+        title.text =[NSString stringWithFormat:@"Light %ld", (long)indexPath.row];
         iconView.image = [UIImage imageNamed:@"LightCellOn"];
-        secTitle.text = @"Turn off after 10 pm";
-    } else if (indexPath.row == 4 || indexPath.row == 5) {
+        secTitle.text = light.peripheral.identifier.UUIDString;
+    /*} else if (indexPath.row == 4 || indexPath.row == 5) {
         title.text =[NSString stringWithFormat:@"Thermo %@", [self.dataList objectAtIndex:indexPath.row]];
         iconView.image = [UIImage imageNamed:@"ThermoCellOn"];
         secTitle.text = @"Reach setting temp. in 1 hr";
@@ -142,7 +159,7 @@
         iconView.image = [UIImage imageNamed:@"LightCellOn"];
         secTitle.text = @"Turn off after 11 pm";
 
-    }
+    }*/
     return cell;
 }
 
@@ -153,7 +170,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (indexPath.row < 4) {
+    /*if (indexPath.row < 4) {
         ColorPickerViewController *vc = [ColorPickerViewController new];
         vc.lightId = self.dataList[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
@@ -169,21 +186,21 @@
         //LightViewController *lightController = [LightViewController new];
         
         //[self.navigationController pushViewController:lightController animated:(YES)];
-    }
+    }*/
 }
 
 
 -(void)toggleLight:(UISwitch *)sender
 {
-    BOOL isOn;
     if (sender.isOn) {
-        isOn = YES;
+        self.selectedLightOn = YES;
     } else {
-        isOn = NO;
+        self.selectedLightOn = NO;
     }
     ABLight *light = self.ABLights[sender.tag];
+    light.delegate = self;
     [light connect];
-    if ( isOn == YES) {
+    /*if ( isOn == YES) {
         [light setLightValue:255 withCompletion:^(NSError *error) {
             NSLog(@"Success");
         }];
@@ -202,17 +219,45 @@
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];
+    }];*/
 }
 
 -(void)lightManager:(ABLightManager *)manager didDiscoverLights:(NSArray *)lights
 {
-    if ([lights count] == 2) {
-        [self.ABLights addObject:lights[0]];
-        [self.ABLights addObject:lights[1]];
-    } else if ([lights count] == 1) {
-        [self.ABLights addObject:lights[0]];
-    }
+    self.ABLights = lights;
+    [self.tableView reloadData];
 }
 
+-(void)lightDidConnected:(ABLight *)light withError:(NSError *)error
+{
+    if ( self.selectedLightOn == YES) {
+        [light setLightValue:255 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
+    }
+    else {
+        [light setLightValue:0 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
+    }
+    [light disconnect];
+}
+#pragma mark - ABBeaconManagerDelegate
+- (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
+    for (ABBeacon *beacon in beacons) {
+        NSInteger rssi = beacon.rssi;
+        NSLog(@"%ld", (long)rssi);
+    }
+}
+#pragma mark - Custom methods
+
+- (void)startRangeBeacons
+{
+    [self stopRangeBeacons];
+    [_beaconManager startAprilBeaconsDiscovery];
+}
+- (void)stopRangeBeacons
+{
+    [_beaconManager stopAprilBeaconDiscovery];
+}
 @end
