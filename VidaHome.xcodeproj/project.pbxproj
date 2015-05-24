@@ -10,7 +10,6 @@
 		2AA7000D1A16BC5D00EF8628 /* VidaHomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7000C1A16BC5D00EF8628 /* VidaHomeTests.m */; };
 		2AA700191A16BC9100EF8628 /* ApplicationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700181A16BC9100EF8628 /* ApplicationStyle.m */; };
 		2AA700251A16BD0C00EF8628 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7001E1A16BD0C00EF8628 /* CenterViewController.m */; };
-		2AA700261A16BD0C00EF8628 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700201A16BD0C00EF8628 /* LightViewController.m */; };
 		2AA700271A16BD0C00EF8628 /* SideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700221A16BD0C00EF8628 /* SideBarViewController.m */; };
 		2AA700281A16BD0C00EF8628 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA700241A16BD0C00EF8628 /* SplashScreenViewController.m */; };
 		2AA7002C1A16BDA200EF8628 /* Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7002B1A16BDA200EF8628 /* Convenience.m */; };
@@ -41,6 +40,8 @@
 		6F345DA81A17261F00FC1266 /* PlusMinusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA51A17261F00FC1266 /* PlusMinusButton.m */; };
 		6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */; };
 		6F345DAD1A172BF000FC1266 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F345DAC1A172BF000FC1266 /* DoorViewController.m */; };
+		6F77BE651B122BB000BF211B /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F77BE631B122BB000BF211B /* LightViewController.m */; };
+		6F77BE661B122BB000BF211B /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F77BE641B122BB000BF211B /* LightViewController.xib */; };
 		6FBA8A261B030F5B00C6B3C4 /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBA8A251B030F5B00C6B3C4 /* libAprilBeaconSDK.a */; };
 		8E132F9B1A788C12004B5F83 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E132F9A1A788C12004B5F83 /* MainViewController.m */; };
 		8E3ABE171AFC25BD00131C02 /* libABLightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */; };
@@ -67,8 +68,6 @@
 		2AA700181A16BC9100EF8628 /* ApplicationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationStyle.m; sourceTree = "<group>"; };
 		2AA7001D1A16BD0C00EF8628 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterViewController.h; path = Controllers/CenterViewController.h; sourceTree = "<group>"; };
 		2AA7001E1A16BD0C00EF8628 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterViewController.m; path = Controllers/CenterViewController.m; sourceTree = "<group>"; };
-		2AA7001F1A16BD0C00EF8628 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LightViewController.h; path = Controllers/LightViewController.h; sourceTree = "<group>"; };
-		2AA700201A16BD0C00EF8628 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LightViewController.m; path = Controllers/LightViewController.m; sourceTree = "<group>"; };
 		2AA700211A16BD0C00EF8628 /* SideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideBarViewController.h; path = Controllers/SideBarViewController.h; sourceTree = "<group>"; };
 		2AA700221A16BD0C00EF8628 /* SideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideBarViewController.m; path = Controllers/SideBarViewController.m; sourceTree = "<group>"; };
 		2AA700231A16BD0C00EF8628 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashScreenViewController.h; path = Controllers/SplashScreenViewController.h; sourceTree = "<group>"; };
@@ -122,6 +121,25 @@
 		6F345DA71A17261F00FC1266 /* PlusMinusButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusMinusButtonView.m; sourceTree = "<group>"; };
 		6F345DAB1A172BF000FC1266 /* DoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoorViewController.h; path = Controllers/DoorViewController.h; sourceTree = "<group>"; };
 		6F345DAC1A172BF000FC1266 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoorViewController.m; path = Controllers/DoorViewController.m; sourceTree = "<group>"; };
+		6F77BE621B122BB000BF211B /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LightViewController.h; path = Controllers/LightViewController.h; sourceTree = "<group>"; };
+		6F77BE631B122BB000BF211B /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LightViewController.m; path = Controllers/LightViewController.m; sourceTree = "<group>"; };
+		6F77BE641B122BB000BF211B /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LightViewController.xib; path = Controllers/LightViewController.xib; sourceTree = "<group>"; };
+		6F77BE681B122E1100BF211B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "Font/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		6F77BE691B122E1100BF211B /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "Font/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE6A1B122E1100BF211B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "Font/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		6F77BE6B1B122E1100BF211B /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "Font/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE6C1B122E1100BF211B /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Font/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		6F77BE6D1B122E1100BF211B /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "Font/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE6E1B122E1100BF211B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Font/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		6F77BE6F1B122E1100BF211B /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "Font/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE701B122E1100BF211B /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "Font/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		6F77BE711B122E1100BF211B /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "Font/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE721B122E1100BF211B /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "Font/RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		6F77BE731B122E1100BF211B /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-BoldItalic.ttf"; path = "Font/RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE741B122E1100BF211B /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Italic.ttf"; path = "Font/RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		6F77BE751B122E1100BF211B /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "Font/RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		6F77BE761B122E1100BF211B /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-LightItalic.ttf"; path = "Font/RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		6F77BE771B122E1100BF211B /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Regular.ttf"; path = "Font/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		6FBA8A1F1B030F5B00C6B3C4 /* ABBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeacon.h; sourceTree = "<group>"; };
 		6FBA8A201B030F5B00C6B3C4 /* ABBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconManager.h; sourceTree = "<group>"; };
 		6FBA8A211B030F5B00C6B3C4 /* ABBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconRegion.h; sourceTree = "<group>"; };
@@ -276,6 +294,7 @@
 		2AA7FFF01A16BC5D00EF8628 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6F77BE671B122DF000BF211B /* Font */,
 				2AA7FFFD1A16BC5D00EF8628 /* Images.xcassets */,
 				2AA7FFF11A16BC5D00EF8628 /* Info.plist */,
 				2AA700291A16BD2100EF8628 /* Vida.pch */,
@@ -379,10 +398,11 @@
 		6F345D921A170C1300FC1266 /* Light */ = {
 			isa = PBXGroup;
 			children = (
-				2AA7001F1A16BD0C00EF8628 /* LightViewController.h */,
-				2AA700201A16BD0C00EF8628 /* LightViewController.m */,
 				6F345D9B1A170CAD00FC1266 /* ColorPickerViewController.h */,
 				6F345D9C1A170CAD00FC1266 /* ColorPickerViewController.m */,
+				6F77BE621B122BB000BF211B /* LightViewController.h */,
+				6F77BE631B122BB000BF211B /* LightViewController.m */,
+				6F77BE641B122BB000BF211B /* LightViewController.xib */,
 			);
 			name = Light;
 			sourceTree = "<group>";
@@ -424,6 +444,29 @@
 				6F345DAC1A172BF000FC1266 /* DoorViewController.m */,
 			);
 			name = Door;
+			sourceTree = "<group>";
+		};
+		6F77BE671B122DF000BF211B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6F77BE681B122E1100BF211B /* Roboto-Black.ttf */,
+				6F77BE691B122E1100BF211B /* Roboto-BlackItalic.ttf */,
+				6F77BE6A1B122E1100BF211B /* Roboto-Bold.ttf */,
+				6F77BE6B1B122E1100BF211B /* Roboto-BoldItalic.ttf */,
+				6F77BE6C1B122E1100BF211B /* Roboto-Light.ttf */,
+				6F77BE6D1B122E1100BF211B /* Roboto-LightItalic.ttf */,
+				6F77BE6E1B122E1100BF211B /* Roboto-Medium.ttf */,
+				6F77BE6F1B122E1100BF211B /* Roboto-MediumItalic.ttf */,
+				6F77BE701B122E1100BF211B /* Roboto-Thin.ttf */,
+				6F77BE711B122E1100BF211B /* Roboto-ThinItalic.ttf */,
+				6F77BE721B122E1100BF211B /* RobotoCondensed-Bold.ttf */,
+				6F77BE731B122E1100BF211B /* RobotoCondensed-BoldItalic.ttf */,
+				6F77BE741B122E1100BF211B /* RobotoCondensed-Italic.ttf */,
+				6F77BE751B122E1100BF211B /* RobotoCondensed-Light.ttf */,
+				6F77BE761B122E1100BF211B /* RobotoCondensed-LightItalic.ttf */,
+				6F77BE771B122E1100BF211B /* RobotoCondensed-Regular.ttf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		6FAC3EFC1ABF694C00ADDDF4 /* Room */ = {
@@ -566,6 +609,7 @@
 			files = (
 				2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */,
 				2ADD7CAF1A5DE07D00D1C601 /* DataModels.bundle in Resources */,
+				6F77BE661B122BB000BF211B /* LightViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +668,6 @@
 				2AA7FFF61A16BC5D00EF8628 /* AppDelegate.m in Sources */,
 				6F345DA11A1718F200FC1266 /* ACViewController.m in Sources */,
 				2AA700281A16BD0C00EF8628 /* SplashScreenViewController.m in Sources */,
-				2AA700261A16BD0C00EF8628 /* LightViewController.m in Sources */,
 				6F345DA91A17261F00FC1266 /* PlusMinusButtonView.m in Sources */,
 				2AA700251A16BD0C00EF8628 /* CenterViewController.m in Sources */,
 				2AA700271A16BD0C00EF8628 /* SideBarViewController.m in Sources */,
@@ -636,6 +679,7 @@
 				6F345DA81A17261F00FC1266 /* PlusMinusButton.m in Sources */,
 				2ADD7CB91A5DEAA300D1C601 /* Transmitter.m in Sources */,
 				2AA7FFF31A16BC5D00EF8628 /* main.m in Sources */,
+				6F77BE651B122BB000BF211B /* LightViewController.m in Sources */,
 				2ADD7CB61A5DE4FB00D1C601 /* BeaconViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

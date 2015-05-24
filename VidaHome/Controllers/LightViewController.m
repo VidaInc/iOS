@@ -1,15 +1,13 @@
 //
-//  LightViewController.m
-//  Vida
+//  LightStatusViewController.m
+//  VidaHome
 //
-//  Created by Wenqi Zhou on 2014-11-14.
-//  Copyright (c) 2014 Vida. All rights reserved.
+//  Created by Wenqi Zhou on 2015-05-24.
+//  Copyright (c) 2015 Vida. All rights reserved.
 //
 
 #import "LightViewController.h"
 #import "ColorPickerViewController.h"
-
-#define LABEL_WIDTH 145.0f
 
 @interface LightViewController () {
     CGFloat width, height;
@@ -19,71 +17,55 @@
 
 @implementation LightViewController
 
+-(BOOL)automaticallyAdjustsScrollViewInsets {return YES;}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self buildUI];
-    [[NetworkManager sharedInstance] getRequest:@"light/1" parameters:nil success:^(id responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(NSError *error) {
-        NSLog(@"fail");
-    }];
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    width = self.view.frame.size.width;
+    height = self.view.frame.size.height;
+    /*[[NetworkManager sharedInstance] getRequest:@"light/1" parameters:nil success:^(id responseObject) {
+     NSLog(@"%@",responseObject);
+     } failure:^(NSError *error) {
+     NSLog(@"fail");
+     }];*/
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.light disconnect];
 }
 
 -(NSString *)title {return @"Light";}
 
-- (void)buildUI
-{
-    [self.view setBackgroundColor:[ApplicationStyle backgroundColor]];
-    width = self.view.frame.size.width;
-    height = self.view.frame.size.height;
-    
-    UILabel *lightLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], [ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
-    [lightLabel setText:@"Light Switch:"];
-    [self.view addSubview:lightLabel];
-    
-    UISwitch *lightSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(LABEL_WIDTH, 0, 0, 0)];
-    [lightSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
-    [lightSwitch centerInHeight:lightLabel.viewHeight forYOffset:[ApplicationStyle navigationBarHeight]+[ApplicationStyle spaceInset]];
-    [self.view addSubview:lightSwitch];
-    
-    UILabel *colorLabel = [[UILabel alloc]initWithFrame:CGRectMake([ApplicationStyle horizontalInset], lightLabel.bottomOffset+[ApplicationStyle spaceInset], LABEL_WIDTH, [ApplicationStyle buttonHeight])];
-    [colorLabel setText:@"Light Color:"];
-    [self.view addSubview:colorLabel];
-    
-    UIButton *colorPicker = [[UIButton alloc]initWithFrame:CGRectMake(LABEL_WIDTH, 0, [ApplicationStyle buttonWidth], [ApplicationStyle buttonHeight])];
-    [colorPicker setTitle:@"Pick Color" forState:UIControlStateNormal];
-    [colorPicker setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [colorPicker.layer setCornerRadius:[ApplicationStyle buttonHeight]/2];
-    [colorPicker.layer setMasksToBounds:YES];
-    [colorPicker.layer setBorderWidth:1];
-    [colorPicker.layer setBorderColor:[UIColor blackColor].CGColor];
-    [colorPicker addTarget:self action:@selector(pickColor:) forControlEvents:UIControlEventTouchUpInside];
-    [colorPicker centerInHeight:colorLabel.viewHeight forYOffset:lightLabel.bottomOffset+[ApplicationStyle spaceInset]];
-    [self.view addSubview:colorPicker];
-    
-}
-
--(void)toggleLight:(UISwitch *)sender
-{
+- (IBAction)toggle:(UISwitch *)sender {
     BOOL isOn;
     if (sender.isOn) {
         isOn = YES;
+        [self.light setLightValue:255 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
     } else {
-        isOn = NO;
+        [self.light setLightValue:0 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
     }
-    
-    [[NetworkManager sharedInstance] postRequest:@"light/1" parameters:@{@"ON":@(isOn), @"color":@"ffffff" } success:^(id responseObject) {
-        NSLog(@"Success");
-    } failure:^(NSError *error) {
-        NSLog(@"fail");
-    }];
 }
 
--(void)pickColor:(UIButton *)sender
+- (IBAction)pickColour:(UIButton *)sender
 {
     ColorPickerViewController *vc = [ColorPickerViewController new];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)changeBrightness:(UISlider *)sender
+{
+    NSLog(@"%.2f",sender.value);
+    [self.light setLightValue:ceil(sender.value) withCompletion:^(NSError *error) {
+        NSLog(@"Success");
+    }];
 }
 
 @end

@@ -104,14 +104,14 @@
         iconView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 0, 45, 45)];
         [iconView centerInHeight:92];
         [cell.contentView addSubview:iconView];
-        //if (indexPath.row < 4) {
+        /*if (indexPath.row < 4) {
             UISwitch *deviceSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(240, 0, 0, 0)];
             
             deviceSwitch.tag = indexPath.row;
             [deviceSwitch centerInHeight:92];
             [deviceSwitch addTarget:self action:@selector(toggleLight:) forControlEvents:UIControlEventValueChanged];
             [cell.contentView addSubview:deviceSwitch];
-        /*} else if (indexPath.row == 4 || indexPath.row == 5) {
+        } else if (indexPath.row == 4 || indexPath.row == 5) {
             UILabel *temp = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 80, 92)];
             temp.text = @"22°C";
             temp.font = [ApplicationStyle cellTempFont];
@@ -170,6 +170,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    ABLight *light = self.ABLights[indexPath.row];
+    light.delegate = self;
+    [light connect];
     /*if (indexPath.row < 4) {
         ColorPickerViewController *vc = [ColorPickerViewController new];
         vc.lightId = self.dataList[indexPath.row];
@@ -190,7 +193,7 @@
 }
 
 
--(void)toggleLight:(UISwitch *)sender
+/*-(void)toggleLight:(UISwitch *)sender
 {
     if (sender.isOn) {
         self.selectedLightOn = YES;
@@ -200,27 +203,13 @@
     ABLight *light = self.ABLights[sender.tag];
     light.delegate = self;
     [light connect];
-    /*if ( isOn == YES) {
-        [light setLightValue:255 withCompletion:^(NSError *error) {
-            NSLog(@"Success");
-        }];
-    }
-    else {
-        [light setLightValue:0 withCompletion:^(NSError *error) {
-            NSLog(@"Success");
-        }];
-    }
-    
-    [light disconnect];
-
-    
     NSString *deviceId = [NSString stringWithFormat:@"%ld",(long)sender.tag];
     [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"deviceId":deviceId,@"ON":@(isOn), @"color":@"ffffff"} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];*/
-}
+    }];
+}*/
 
 -(void)lightManager:(ABLightManager *)manager didDiscoverLights:(NSArray *)lights
 {
@@ -230,17 +219,9 @@
 
 -(void)lightDidConnected:(ABLight *)light withError:(NSError *)error
 {
-    if ( self.selectedLightOn == YES) {
-        [light setLightValue:255 withCompletion:^(NSError *error) {
-            NSLog(@"Success");
-        }];
-    }
-    else {
-        [light setLightValue:0 withCompletion:^(NSError *error) {
-            NSLog(@"Success");
-        }];
-    }
-    [light disconnect];
+    LightViewController *lightController = [LightViewController new];
+    lightController.light = light;
+    [self.navigationController pushViewController:lightController animated:YES];
 }
 #pragma mark - ABBeaconManagerDelegate
 - (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
