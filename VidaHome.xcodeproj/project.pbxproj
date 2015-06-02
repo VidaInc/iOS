@@ -43,6 +43,10 @@
 		6F77BE651B122BB000BF211B /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F77BE631B122BB000BF211B /* LightViewController.m */; };
 		6F77BE661B122BB000BF211B /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F77BE641B122BB000BF211B /* LightViewController.xib */; };
 		6FBA8A261B030F5B00C6B3C4 /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBA8A251B030F5B00C6B3C4 /* libAprilBeaconSDK.a */; };
+		6FE9CE951B1E2A97000D52EE /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE9CE941B1E2A97000D52EE /* NotificationCenter.framework */; };
+		6FE9CE9B1B1E2A97000D52EE /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9CE9A1B1E2A97000D52EE /* TodayViewController.m */; };
+		6FE9CE9D1B1E2A97000D52EE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE9CE9C1B1E2A97000D52EE /* MainInterface.storyboard */; };
+		6FE9CEA01B1E2A97000D52EE /* LightWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6FE9CE931B1E2A97000D52EE /* LightWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8E132F9B1A788C12004B5F83 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E132F9A1A788C12004B5F83 /* MainViewController.m */; };
 		8E3ABE171AFC25BD00131C02 /* libABLightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */; };
 		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
@@ -56,7 +60,28 @@
 			remoteGlobalIDString = 2AA7FFEC1A16BC5D00EF8628;
 			remoteInfo = VidaHome;
 		};
+		6FE9CE9E1B1E2A97000D52EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA7FFE51A16BC5D00EF8628 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FE9CE921B1E2A97000D52EE;
+			remoteInfo = LightWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6FE9CEA41B1E2A97000D52EE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6FE9CEA01B1E2A97000D52EE /* LightWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1744B4536F593E19B7F7DD9F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +172,12 @@
 		6FBA8A231B030F5B00C6B3C4 /* ABSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSensor.h; sourceTree = "<group>"; };
 		6FBA8A241B030F5B00C6B3C4 /* AprilBeaconSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AprilBeaconSDK.h; sourceTree = "<group>"; };
 		6FBA8A251B030F5B00C6B3C4 /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAprilBeaconSDK.a; sourceTree = "<group>"; };
+		6FE9CE931B1E2A97000D52EE /* LightWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LightWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FE9CE941B1E2A97000D52EE /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		6FE9CE981B1E2A97000D52EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FE9CE991B1E2A97000D52EE /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		6FE9CE9A1B1E2A97000D52EE /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		6FE9CE9C1B1E2A97000D52EE /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		8E132F991A788C12004B5F83 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController.h; sourceTree = "<group>"; };
 		8E132F9A1A788C12004B5F83 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController.m; sourceTree = "<group>"; };
 		8E3ABE131AFC25BD00131C02 /* ABLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLight.h; sourceTree = "<group>"; };
@@ -184,6 +215,14 @@
 				2ADD7CAC1A5DE07D00D1C601 /* Common.framework in Frameworks */,
 				2ADD7C801A5DDFDB00D1C601 /* CoreBluetooth.framework in Frameworks */,
 				C3509CE01605A306D318759C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FE9CE901B1E2A97000D52EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FE9CE951B1E2A97000D52EE /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +295,7 @@
 			children = (
 				2AA7FFEF1A16BC5D00EF8628 /* VidaHome */,
 				2AA700091A16BC5D00EF8628 /* VidaHomeTests */,
+				6FE9CE961B1E2A97000D52EE /* LightWidget */,
 				2AA7FFEE1A16BC5D00EF8628 /* Products */,
 				2B621216464D702E6F78A6B1 /* Pods */,
 				360AB214BAFF0AE2853DBBFB /* Frameworks */,
@@ -267,6 +307,7 @@
 			children = (
 				2AA7FFED1A16BC5D00EF8628 /* VidaHome.app */,
 				2AA700061A16BC5D00EF8628 /* VidaHomeTests.xctest */,
+				6FE9CE931B1E2A97000D52EE /* LightWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,6 +432,7 @@
 				2ADD7C771A5DDF2800D1C601 /* ContextCore.framework */,
 				2ADD7C751A5DDF0400D1C601 /* Common.framework */,
 				1744B4536F593E19B7F7DD9F /* libPods.a */,
+				6FE9CE941B1E2A97000D52EE /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -498,6 +540,25 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		6FE9CE961B1E2A97000D52EE /* LightWidget */ = {
+			isa = PBXGroup;
+			children = (
+				6FE9CE991B1E2A97000D52EE /* TodayViewController.h */,
+				6FE9CE9A1B1E2A97000D52EE /* TodayViewController.m */,
+				6FE9CE9C1B1E2A97000D52EE /* MainInterface.storyboard */,
+				6FE9CE971B1E2A97000D52EE /* Supporting Files */,
+			);
+			path = LightWidget;
+			sourceTree = "<group>";
+		};
+		6FE9CE971B1E2A97000D52EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6FE9CE981B1E2A97000D52EE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8E3ABE111AFC25BD00131C02 /* ABLightSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,15 +608,34 @@
 				2AA7FFEA1A16BC5D00EF8628 /* Frameworks */,
 				2AA7FFEB1A16BC5D00EF8628 /* Resources */,
 				035D68170290CDB7F47F2686 /* Copy Pods Resources */,
+				6FE9CEA41B1E2A97000D52EE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6FE9CE9F1B1E2A97000D52EE /* PBXTargetDependency */,
 			);
 			name = VidaHome;
 			productName = VidaHome;
 			productReference = 2AA7FFED1A16BC5D00EF8628 /* VidaHome.app */;
 			productType = "com.apple.product-type.application";
+		};
+		6FE9CE921B1E2A97000D52EE /* LightWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FE9CEA31B1E2A97000D52EE /* Build configuration list for PBXNativeTarget "LightWidget" */;
+			buildPhases = (
+				6FE9CE8F1B1E2A97000D52EE /* Sources */,
+				6FE9CE901B1E2A97000D52EE /* Frameworks */,
+				6FE9CE911B1E2A97000D52EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightWidget;
+			productName = LightWidget;
+			productReference = 6FE9CE931B1E2A97000D52EE /* LightWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -572,6 +652,10 @@
 					};
 					2AA7FFEC1A16BC5D00EF8628 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = M7RGP2CK5Y;
+					};
+					6FE9CE921B1E2A97000D52EE = {
+						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = M7RGP2CK5Y;
 					};
 				};
@@ -591,6 +675,7 @@
 			targets = (
 				2AA7FFEC1A16BC5D00EF8628 /* VidaHome */,
 				2AA700051A16BC5D00EF8628 /* VidaHomeTests */,
+				6FE9CE921B1E2A97000D52EE /* LightWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -610,6 +695,14 @@
 				2AA7FFFE1A16BC5D00EF8628 /* Images.xcassets in Resources */,
 				2ADD7CAF1A5DE07D00D1C601 /* DataModels.bundle in Resources */,
 				6F77BE661B122BB000BF211B /* LightViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FE9CE911B1E2A97000D52EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FE9CE9D1B1E2A97000D52EE /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +777,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6FE9CE8F1B1E2A97000D52EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FE9CE9B1B1E2A97000D52EE /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -691,6 +792,11 @@
 			isa = PBXTargetDependency;
 			target = 2AA7FFEC1A16BC5D00EF8628 /* VidaHome */;
 			targetProxy = 2AA700071A16BC5D00EF8628 /* PBXContainerItemProxy */;
+		};
+		6FE9CE9F1B1E2A97000D52EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FE9CE921B1E2A97000D52EE /* LightWidget */;
+			targetProxy = 6FE9CE9E1B1E2A97000D52EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -875,6 +981,39 @@
 			};
 			name = Release;
 		};
+		6FE9CEA11B1E2A97000D52EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LightWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6FE9CEA21B1E2A97000D52EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = LightWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -904,6 +1043,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6FE9CEA31B1E2A97000D52EE /* Build configuration list for PBXNativeTarget "LightWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FE9CEA11B1E2A97000D52EE /* Debug */,
+				6FE9CEA21B1E2A97000D52EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
