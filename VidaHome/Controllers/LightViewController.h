@@ -1,14 +1,16 @@
 //
-//  LightViewController.h
-//  Vida
+//  LightStatusViewController.h
+//  VidaHome
 //
-//  Created by Wenqi Zhou on 2014-11-14.
-//  Copyright (c) 2014 Vida. All rights reserved.
+//  Created by Wenqi Zhou on 2015-05-24.
+//  Copyright (c) 2015 Vida. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "CenterViewController.h"
+#import "ABLightSDK.h"
 
-@interface LightViewController : CenterViewController
+@interface LightViewController : UIViewController
+
+@property ABLight *light;
 
 @end
