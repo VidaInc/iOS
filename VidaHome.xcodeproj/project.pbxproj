@@ -47,6 +47,7 @@
 		6FE9CE9B1B1E2A97000D52EE /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9CE9A1B1E2A97000D52EE /* TodayViewController.m */; };
 		6FE9CE9D1B1E2A97000D52EE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FE9CE9C1B1E2A97000D52EE /* MainInterface.storyboard */; };
 		6FE9CEA01B1E2A97000D52EE /* LightWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6FE9CE931B1E2A97000D52EE /* LightWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6FE9CEA51B1E33BB000D52EE /* libABLightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */; };
 		8E132F9B1A788C12004B5F83 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E132F9A1A788C12004B5F83 /* MainViewController.m */; };
 		8E3ABE171AFC25BD00131C02 /* libABLightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3ABE161AFC25BD00131C02 /* libABLightSDK.a */; };
 		C3509CE01605A306D318759C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1744B4536F593E19B7F7DD9F /* libPods.a */; };
@@ -222,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE9CEA51B1E33BB000D52EE /* libABLightSDK.a in Frameworks */,
 				6FE9CE951B1E2A97000D52EE /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -994,6 +996,10 @@
 				INFOPLIST_FILE = LightWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VidaHome/ABLightSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1009,6 +1015,10 @@
 				INFOPLIST_FILE = LightWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VidaHome/ABLightSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1051,6 +1061,7 @@
 				6FE9CEA21B1E2A97000D52EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
