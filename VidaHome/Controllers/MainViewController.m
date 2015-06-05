@@ -21,8 +21,8 @@
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UITabBarController *tab;
-@property (nonatomic) NSArray *ABLights;
-@property (nonatomic) ABLightManager *lightManager;
+@property (nonatomic) NSArray *ABBeacons;
+//@property (nonatomic) ABLightManager *lightManager;
 @property BOOL selectedLightOn;
 @property (nonatomic, strong) ABBeaconManager *beaconManager;
 
@@ -41,8 +41,8 @@
     [ApplicationStyle customizeRightButton:self hander:nil withImage:navRight];
     [ApplicationStyle customizeTitle:self withImage:navTiltle];
     //NSArray *list = [[NSArray alloc] initWithObjects:@"2998",@"2356",@"1548", @"1937", @"2466", @"2477", nil];
-    self.lightManager = [ABLightManager new];
-    self.lightManager.delegate = self;
+    //self.lightManager = [ABLightManager new];
+    //self.lightManager.delegate = self;
     self.beaconManager = [[ABBeaconManager alloc] init];
     self.beaconManager.delegate = self;
     
@@ -52,14 +52,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.lightManager startDiscoverLight];
-    [self startRangeBeacons];
+    //[self.lightManager startDiscoverLight];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                                     target:self
+                                                   selector:@selector(runLoopStartScan)
+                                                   userInfo:nil
+                                                    repeats:YES];
+    [timer fire];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self stopRangeBeacons];
+- (void)runLoopStartScan {
+    [self.beaconManager stopAprilBeaconDiscovery];
+    [self.beaconManager startAprilBeaconsDiscovery];
 }
 
 - (void)buildUI
@@ -79,7 +83,7 @@
 
 #pragma mark - Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.ABLights count];
+    return [self.ABBeacons count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,10 +145,10 @@
     
     
     //if (indexPath.row) {
-        ABLight *light = self.ABLights[indexPath.row];
-        title.text =[NSString stringWithFormat:@"Light %ld", (long)indexPath.row];
-        iconView.image = [UIImage imageNamed:@"LightCellOn"];
-        secTitle.text = light.peripheral.identifier.UUIDString;
+    ABBeacon *beacon = self.ABBeacons[indexPath.row];
+    title.text =[NSString stringWithFormat:@"Light %ld", (long)indexPath.row];
+    iconView.image = [UIImage imageNamed:@"LightCellOn"];
+    secTitle.text = [NSString stringWithFormat:@"%ld", (long)beacon.rssi];
     /*} else if (indexPath.row == 4 || indexPath.row == 5) {
         title.text =[NSString stringWithFormat:@"Thermo %@", [self.dataList objectAtIndex:indexPath.row]];
         iconView.image = [UIImage imageNamed:@"ThermoCellOn"];
@@ -170,9 +174,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    ABLight *light = self.ABLights[indexPath.row];
-    light.delegate = self;
-    [light connect];
+    ABBeacon *beacon = self.ABBeacons[indexPath.row];
+    LightViewController *lightController = [LightViewController new];
+    lightController.beacon = beacon;
+    [self.navigationController pushViewController:lightController animated:YES];
     /*if (indexPath.row < 4) {
         ColorPickerViewController *vc = [ColorPickerViewController new];
         vc.lightId = self.dataList[indexPath.row];
@@ -192,53 +197,14 @@
     }*/
 }
 
-
-/*-(void)toggleLight:(UISwitch *)sender
-{
-    if (sender.isOn) {
-        self.selectedLightOn = YES;
-    } else {
-        self.selectedLightOn = NO;
-    }
-    ABLight *light = self.ABLights[sender.tag];
-    light.delegate = self;
-    [light connect];
-    NSString *deviceId = [NSString stringWithFormat:@"%ld",(long)sender.tag];
-    [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"deviceId":deviceId,@"ON":@(isOn), @"color":@"ffffff"} success:^(id responseObject) {
+#pragma mark - ABBeaconManagerDelegate
+- (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
+    self.ABBeacons = beacons;
+    [self.tableView reloadData];
+    /*[[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp]), @"deviceId":transmitter.identifier} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];
-}*/
-
--(void)lightManager:(ABLightManager *)manager didDiscoverLights:(NSArray *)lights
-{
-    self.ABLights = lights;
-    [self.tableView reloadData];
-}
-
--(void)lightDidConnected:(ABLight *)light withError:(NSError *)error
-{
-    LightViewController *lightController = [LightViewController new];
-    lightController.light = light;
-    [self.navigationController pushViewController:lightController animated:YES];
-}
-#pragma mark - ABBeaconManagerDelegate
-- (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
-    for (ABBeacon *beacon in beacons) {
-        NSInteger rssi = beacon.rssi;
-        NSLog(@"%ld", (long)rssi);
-    }
-}
-#pragma mark - Custom methods
-
-- (void)startRangeBeacons
-{
-    [self stopRangeBeacons];
-    [_beaconManager startAprilBeaconsDiscovery];
-}
-- (void)stopRangeBeacons
-{
-    [_beaconManager stopAprilBeaconDiscovery];
+    }];*/
 }
 @end

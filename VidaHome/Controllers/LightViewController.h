@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ABLightSDK.h"
+#import "ABBeacon.h"
 
 @interface LightViewController : UIViewController
 
-@property ABLight *light;
+@property ABBeacon *beacon;
 
 @end

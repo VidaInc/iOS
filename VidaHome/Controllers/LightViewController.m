@@ -33,10 +33,6 @@
      }];*/
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.light disconnect];
-}
 
 -(NSString *)title {return @"Light";}
 
@@ -44,12 +40,16 @@
     BOOL isOn;
     if (sender.isOn) {
         isOn = YES;
-        [self.light setLightValue:255 withCompletion:^(NSError *error) {
+        [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"userId":[ApplicationStyle getUserId], @"UUID":self.beacon.proximityUUID.UUIDString, @"major":@([self.beacon.major intValue]), @"minor":@([self.beacon.minor intValue]), @"rssi":@(self.beacon.rssi), @"brightness":@(255)} success:^(id responseObject) {
             NSLog(@"Success");
+        } failure:^(NSError *error) {
+            NSLog(@"fail");
         }];
     } else {
-        [self.light setLightValue:0 withCompletion:^(NSError *error) {
+        [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"userId":[ApplicationStyle getUserId], @"UUID":self.beacon.proximityUUID.UUIDString, @"major":@([self.beacon.major intValue]), @"minor":@([self.beacon.minor intValue]), @"rssi":@(self.beacon.rssi), @"brightness":@(0)} success:^(id responseObject) {
             NSLog(@"Success");
+        } failure:^(NSError *error) {
+            NSLog(@"fail");
         }];
     }
 }
@@ -63,8 +63,10 @@
 - (IBAction)changeBrightness:(UISlider *)sender
 {
     NSLog(@"%.2f",sender.value);
-    [self.light setLightValue:ceil(sender.value) withCompletion:^(NSError *error) {
+    [[NetworkManager sharedInstance] postRequest:@"light" parameters:@{@"userId":[ApplicationStyle getUserId], @"UUID":self.beacon.proximityUUID.UUIDString, @"major":@([self.beacon.major intValue]), @"minor":@([self.beacon.minor intValue]), @"rssi":@(self.beacon.rssi), @"brightness":@(sender.value)} success:^(id responseObject) {
         NSLog(@"Success");
+    } failure:^(NSError *error) {
+        NSLog(@"fail");
     }];
 }
 
