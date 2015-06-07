@@ -17,27 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DISCONNECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK5-UW-ZOl">
-                                <rect key="frame" x="16" y="8" width="97" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCONNECT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK5-UW-ZOl">
+                                <rect key="frame" x="16" y="8" width="160" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="akF-Dm-XYs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cFV-rc-W8J">
-                                <rect key="frame" x="119" y="4" width="187" height="31"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-kE-w5B">
+                                <rect key="frame" x="176" y="5" width="128" height="29"/>
+                                <segments>
+                                    <segment title="ON"/>
+                                    <segment title="OFF"/>
+                                </segments>
                                 <connections>
-                                    <action selector="adjustBrightness:" destination="M4Y-Lb-cyx" eventType="valueChanged" id="2CA-oy-cAX"/>
+                                    <action selector="switchControl:" destination="M4Y-Lb-cyx" eventType="valueChanged" id="joA-KP-9Zd"/>
                                 </connections>
-                            </slider>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="cFV-rc-W8J" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="4" id="79K-S9-oxI"/>
-                            <constraint firstItem="cFV-rc-W8J" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="BJL-Af-rM9"/>
+                            <constraint firstItem="Xky-kE-w5B" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="3oT-Yb-1Wa"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Xky-kE-w5B" secondAttribute="bottom" constant="4" id="HfE-0f-6Se"/>
+                            <constraint firstItem="Xky-kE-w5B" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="5" id="K6o-m4-u3r"/>
+                            <constraint firstItem="gK5-UW-ZOl" firstAttribute="trailing" secondItem="Xky-kE-w5B" secondAttribute="leading" id="QiB-Hh-S9h"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="gK5-UW-ZOl" secondAttribute="bottom" constant="8" id="RFw-D8-JTu"/>
                             <constraint firstItem="gK5-UW-ZOl" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="T3F-ed-HKt"/>
-                            <constraint firstItem="cFV-rc-W8J" firstAttribute="leading" secondItem="gK5-UW-ZOl" secondAttribute="trailing" constant="8" id="UPd-Wq-34D"/>
-                            <constraint firstItem="cFV-rc-W8J" firstAttribute="leading" secondItem="gK5-UW-ZOl" secondAttribute="trailing" constant="8" id="ZRM-tM-Zx7"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="cFV-rc-W8J" secondAttribute="bottom" constant="3" id="siP-YH-2eZ"/>
                             <constraint firstItem="gK5-UW-ZOl" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="tGK-QT-wlI"/>
                         </constraints>
                     </view>

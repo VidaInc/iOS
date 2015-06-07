@@ -3,12 +3,12 @@ PODS:
     - AFNetworking/NSURLConnection (~> 2.0)
     - AFNetworking/NSURLSession (~> 2.0)
   - AFNetworking (2.4.1):
-    - AFNetworking/NSURLConnection (= 2.4.1)
-    - AFNetworking/NSURLSession (= 2.4.1)
-    - AFNetworking/Reachability (= 2.4.1)
-    - AFNetworking/Security (= 2.4.1)
-    - AFNetworking/Serialization (= 2.4.1)
-    - AFNetworking/UIKit (= 2.4.1)
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
   - AFNetworking/NSURLConnection (2.4.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -23,9 +23,14 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Bolts (1.1.3)
+  - Bolts (1.2.0):
+    - Bolts/AppLinks
+    - Bolts/Tasks
+  - Bolts/AppLinks (1.2.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.2.0)
   - CocoaLumberjack (1.9.2):
-    - CocoaLumberjack/Extensions (= 1.9.2)
+    - CocoaLumberjack/Extensions
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
@@ -47,11 +52,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: e82c9ba285b37042d86729bff5b14036c4312cd7
   AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
-  Bolts: e431c88fd02115d4a34016c2100bbfa4d2d5b146
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   Facebook-iOS-SDK: 2a2f22be64360c46eb76002654aba69c0ea06f5a
   NKOColorPickerView: 3001ad15be1277dac3b80b300f530828e93b23ae
   NMRangeSlider: 317ded652431eb90501c8421d9cddc3930d891e6
   ViewDeck: ce795f929d00d1e0fd63f61d79cc92a9ea050ec9
 
-COCOAPODS: 0.37.0
+COCOAPODS: 0.34.4

@@ -146,7 +146,7 @@
     
     //if (indexPath.row) {
     ABBeacon *beacon = self.ABBeacons[indexPath.row];
-    title.text =[NSString stringWithFormat:@"Light %ld", (long)indexPath.row];
+    title.text =beacon.peripheral.identifier.UUIDString;//[NSString stringWithFormat:@"Light %ld", (long)indexPath.row];
     iconView.image = [UIImage imageNamed:@"LightCellOn"];
     secTitle.text = [NSString stringWithFormat:@"%ld", (long)beacon.rssi];
     /*} else if (indexPath.row == 4 || indexPath.row == 5) {
@@ -201,10 +201,15 @@
 - (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
     self.ABBeacons = beacons;
     [self.tableView reloadData];
-    /*[[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"userId":[ApplicationStyle getUserId],@"needHeat":@(transmitter.needHeat), @"inRange":@YES, @"rssi":@(rssi), @"batteryLevel":@(battery), @"currentTemperature":@(temp), @"preferTemperature":@([ApplicationStyle getPreferTemp]), @"deviceId":transmitter.identifier} success:^(id responseObject) {
+    NSMutableArray *requestArray = [NSMutableArray new];
+    for (ABBeacon *beacon in beacons) {
+        NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId], @"rssi":@(beacon.rssi), @"UUID":@(0), @"major":@(1), @"minor":@(2), @"beaconID":beacon.peripheral.identifier.UUIDString};
+        [requestArray addObject:beaconDic];
+    }
+    [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"beacons":requestArray} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");
-    }];*/
+    }];
 }
 @end

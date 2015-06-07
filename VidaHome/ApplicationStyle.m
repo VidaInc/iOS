@@ -9,7 +9,7 @@
 #import "ApplicationStyle.h"
 
 static int temperature = 0;
-static NSString *ip=@"192.168.43.79";
+static NSString *ip=@"192.168.0.25";
 static NSString *userId = @"0";
 
 @implementation ApplicationStyle

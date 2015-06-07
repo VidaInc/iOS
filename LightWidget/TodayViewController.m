@@ -42,11 +42,17 @@
 
     completionHandler(NCUpdateResultNewData);
 }
-- (IBAction)adjustBrightness:(UISlider *)sender {
-    NSLog(@"%.2f",sender.value);
-    [self.light setLightValue:ceil(sender.value) withCompletion:^(NSError *error) {
-        NSLog(@"Success");
-    }];
+
+- (IBAction)switchControl:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        [self.light setLightValue:255 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
+    } else {
+        [self.light setLightValue:0 withCompletion:^(NSError *error) {
+            NSLog(@"Success");
+        }];
+    }
 }
 
 -(void)lightManager:(ABLightManager *)manager didDiscoverLights:(NSArray *)lights
