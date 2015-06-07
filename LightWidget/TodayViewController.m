@@ -8,11 +8,13 @@
 
 #import "TodayViewController.h"
 #import "ABLightSDK.h"
+#import "AprilBeaconSDK.h"
 #import <NotificationCenter/NotificationCenter.h>
 
-@interface TodayViewController () <NCWidgetProviding, ABLightDelegate, ABLightManagerDelegate>
+@interface TodayViewController () <NCWidgetProviding, ABLightDelegate, ABLightManagerDelegate, ABBeaconManagerDelegate>
 
 @property (nonatomic) ABLightManager *lightManager;
+@property (nonatomic, strong) ABBeaconManager *beaconManager;
 @property (nonatomic) ABLight *light;
 @property (weak, nonatomic) IBOutlet UILabel *lightLabel;
 
@@ -25,12 +27,15 @@
     // Do any additional setup after loading the view from its nib.
     self.lightManager = [ABLightManager new];
     self.lightManager.delegate = self;
+    self.beaconManager = [[ABBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.lightManager startDiscoverLight];
+    [self.beaconManager startAprilBeaconsDiscovery];
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
@@ -67,6 +72,10 @@
 -(void)lightDidConnected:(ABLight *)light withError:(NSError *)error
 {
     [self.lightLabel setText:@"Connected"];
+}
+
+- (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
+    NSLog(@"send request");
 }
 
 @end

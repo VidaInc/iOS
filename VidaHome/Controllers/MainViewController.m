@@ -11,11 +11,10 @@
 #import "ColorPickerViewController.h"
 #import "ACViewController.h"
 #import "LightViewController.h"
-#import "ABLightSDK.h"
 #import "ABBeaconManager.h"
 #import "ABBeacon.h"
 
-@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, ABLightManagerDelegate, ABLightDelegate, ABBeaconManagerDelegate> {
+@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, ABBeaconManagerDelegate> {
     CGFloat width, height;
 }
 
@@ -60,6 +59,13 @@
                                                     repeats:YES];
     [timer fire];
 }
+
+/*-(void)lightManager:(ABLightManager *)manager didDiscoverLights:(NSArray *)lights
+{
+    if ([lights count]>0) {
+        
+    }
+}*/
 
 - (void)runLoopStartScan {
     [self.beaconManager stopAprilBeaconDiscovery];
@@ -203,10 +209,19 @@
     [self.tableView reloadData];
     NSMutableArray *requestArray = [NSMutableArray new];
     for (ABBeacon *beacon in beacons) {
+        [beacon readBeaconMacAddressWithCompletion:^(NSString *value, NSError *error) {
+            NSLog(@"Mac:%@",value);
+        }];
+        [beacon readBeaconMinorWithCompletion:^(unsigned short value, NSError *error) {
+            NSLog(@"minor:%d", value);
+        }];
+        [beacon readBeaconProximityUUIDWithCompletion:^(NSString *value, NSError *error) {
+            NSLog(@"UUID:%@", value);
+        }];
         NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId], @"rssi":@(beacon.rssi), @"UUID":@(0), @"major":@(1), @"minor":@(2), @"beaconID":beacon.peripheral.identifier.UUIDString};
         [requestArray addObject:beaconDic];
     }
-    [[NetworkManager sharedInstance] postRequest:[NSString stringWithFormat:@"iBeacon"] parameters:@{@"beacons":requestArray} success:^(id responseObject) {
+    [[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"beacons":requestArray} success:^(id responseObject) {
         NSLog(@"Success");
     } failure:^(NSError *error) {
         NSLog(@"fail");

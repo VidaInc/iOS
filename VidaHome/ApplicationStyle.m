@@ -56,7 +56,7 @@ static NSString *userId = @"0";
 }
 
 +(NSString *)baseURLString {
-    return [NSString stringWithFormat:@"http://%@:8000/api/", ip];
+    return [NSString stringWithFormat:@"http://%@:8080/", ip];
 }
 
 @end
