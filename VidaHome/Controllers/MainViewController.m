@@ -209,17 +209,16 @@
     [self.tableView reloadData];
     NSMutableArray *requestArray = [NSMutableArray new];
     for (ABBeacon *beacon in beacons) {
-        [beacon readBeaconMacAddressWithCompletion:^(NSString *value, NSError *error) {
-            NSLog(@"Mac:%@",value);
-        }];
-        [beacon readBeaconMinorWithCompletion:^(unsigned short value, NSError *error) {
-            NSLog(@"minor:%d", value);
-        }];
-        [beacon readBeaconProximityUUIDWithCompletion:^(NSString *value, NSError *error) {
-            NSLog(@"UUID:%@", value);
-        }];
-        NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId], @"rssi":@(beacon.rssi), @"UUID":@(0), @"major":@(1), @"minor":@(2), @"beaconID":beacon.peripheral.identifier.UUIDString};
-        [requestArray addObject:beaconDic];
+        if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"9F8036CE-125B-18B8-A232-C82FE667C611"]) {
+            NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId],@"UUID":@(0), @"major":@(0),@"minor":@(1), @"rssi":@(beacon.rssi), @"MACaddr":@"B4-99-4C-89-70-53"};
+            [requestArray addObject:beaconDic];
+        } else if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"A0425A33-D9E0-2BC8-72A6-4163287685AA"]) {
+            NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId],@"UUID":@(0), @"major":@(0),@"minor":@(3), @"rssi":@(beacon.rssi), @"MACaddr":@"B4-99-4C-89-72-9E"};
+            [requestArray addObject:beaconDic];
+        } else if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"460AA612-DC70-C463-F603-54B99D591B59"]) {
+            NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId],@"UUID":@(0), @"major":@(0),@"minor":@(2), @"rssi":@(beacon.rssi), @"MACaddr":@"D0-FF-50-67-7C-4A"};
+            [requestArray addObject:beaconDic];
+        }
     }
     [[NetworkManager sharedInstance] postRequest:@"" parameters:@{@"beacons":requestArray} success:^(id responseObject) {
         NSLog(@"Success");
