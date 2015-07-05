@@ -209,13 +209,13 @@
     [self.tableView reloadData];
     NSMutableArray *requestArray = [NSMutableArray new];
     for (ABBeacon *beacon in beacons) {
-        if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"9F8036CE-125B-18B8-A232-C82FE667C611"]) {
+        if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"E3138FB9-E229-EF15-A8C7-B15B09BFDC0D"]) {
             NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId],@"UUID":@(0), @"major":@(0),@"minor":@(1), @"rssi":@(beacon.rssi), @"MACaddr":@"B4-99-4C-89-70-53"};
             [requestArray addObject:beaconDic];
-        } else if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"A0425A33-D9E0-2BC8-72A6-4163287685AA"]) {
+        } else if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"E14E9179-457B-7E60-C069-91BBD7DAA9C8"]) {
             NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId],@"UUID":@(0), @"major":@(0),@"minor":@(3), @"rssi":@(beacon.rssi), @"MACaddr":@"B4-99-4C-89-72-9E"};
             [requestArray addObject:beaconDic];
-        } else if ([beacon.peripheral.identifier.UUIDString isEqualToString:@"460AA612-DC70-C463-F603-54B99D591B59"]) {
+        } else {
             NSDictionary *beaconDic = @{@"userId":[ApplicationStyle getUserId],@"UUID":@(0), @"major":@(0),@"minor":@(2), @"rssi":@(beacon.rssi), @"MACaddr":@"D0-FF-50-67-7C-4A"};
             [requestArray addObject:beaconDic];
         }
