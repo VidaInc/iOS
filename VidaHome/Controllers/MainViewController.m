@@ -52,7 +52,7 @@
 {
     [super viewWillAppear:animated];
     //[self.lightManager startDiscoverLight];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10.0f
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:30.0f
                                                      target:self
                                                    selector:@selector(runLoopStartScan)
                                                    userInfo:nil
